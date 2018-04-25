@@ -1,16 +1,10 @@
 ###主流转场动画
 
-![1.gif](https://upload-images.jianshu.io/upload_images/1801563-7c7f0def50ca8269.gif?imageMogr2/auto-orient/strip)
+![1.gif](https://upload-images.jianshu.io/upload_images/1801563-7c7f0def50ca8269.gif?imageMogr2/auto-orient/strip)![2.gif](https://upload-images.jianshu.io/upload_images/1801563-f5d8172f7c7828d7.gif?imageMogr2/auto-orient/strip)
 
-![2.gif](https://upload-images.jianshu.io/upload_images/1801563-f5d8172f7c7828d7.gif?imageMogr2/auto-orient/strip)
+![3.gif](https://upload-images.jianshu.io/upload_images/1801563-348ead15ab2669d3.gif?imageMogr2/auto-orient/strip)![4.gif](https://upload-images.jianshu.io/upload_images/1801563-6470fad4670f7667.gif?imageMogr2/auto-orient/strip)
 
-![3.gif](https://upload-images.jianshu.io/upload_images/1801563-348ead15ab2669d3.gif?imageMogr2/auto-orient/strip)
-
-![4.gif](https://upload-images.jianshu.io/upload_images/1801563-6470fad4670f7667.gif?imageMogr2/auto-orient/strip)
-
-![5.gif](https://upload-images.jianshu.io/upload_images/1801563-050c35c20e37dc17.gif?imageMogr2/auto-orient/strip)
-
-![6.gif](https://upload-images.jianshu.io/upload_images/1801563-593d5fdefc759f97.gif?imageMogr2/auto-orient/strip)
+![5.gif](https://upload-images.jianshu.io/upload_images/1801563-050c35c20e37dc17.gif?imageMogr2/auto-orient/strip)![6.gif](https://upload-images.jianshu.io/upload_images/1801563-593d5fdefc759f97.gif?imageMogr2/auto-orient/strip)
 
 ![7.gif](https://upload-images.jianshu.io/upload_images/1801563-b8d20580229e1769.gif?imageMogr2/auto-orient/strip)
 
