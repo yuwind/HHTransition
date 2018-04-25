@@ -10,6 +10,7 @@
 
 **使用方法**
 >1、导入头文件`UIViewController+HHTransition`
+
 >2、调用如下方法，基本只需要一句话，无侵入，API简单易用
 
 ```objc
