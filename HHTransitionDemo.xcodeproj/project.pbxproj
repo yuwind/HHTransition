@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		505D45452089CCA00062B838 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 505D45432089CCA00062B838 /* 2.jpg */; };
+		505D45462089CCA00062B838 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 505D45442089CCA00062B838 /* 1.jpg */; };
+		505D45492089CEA50062B838 /* InterScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D45482089CEA50062B838 /* InterScaleViewController.m */; };
+		50A2B9142087150B00C24583 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A2B9132087150B00C24583 /* AppDelegate.m */; };
+		50A2B9172087150B00C24583 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A2B9162087150B00C24583 /* ViewController.m */; };
+		50A2B91A2087150B00C24583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A2B9182087150B00C24583 /* Main.storyboard */; };
+		50A2B91C2087150B00C24583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50A2B91B2087150B00C24583 /* Assets.xcassets */; };
+		50A2B91F2087150B00C24583 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A2B91D2087150B00C24583 /* LaunchScreen.storyboard */; };
+		50A2B9222087150B00C24583 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A2B9212087150B00C24583 /* main.m */; };
+		50A2B9442087194800C24583 /* CircleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A2B93E2087194800C24583 /* CircleViewController.xib */; };
+		50A2B9452087194800C24583 /* BackScaleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A2B93F2087194800C24583 /* BackScaleViewController.xib */; };
+		50A2B9462087194800C24583 /* BackScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A2B9402087194800C24583 /* BackScaleViewController.m */; };
+		50A2B9472087194800C24583 /* CircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A2B9422087194800C24583 /* CircleViewController.m */; };
+		50D6BA81208F25810042F5E0 /* AnimationWaveEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA5F208F25800042F5E0 /* AnimationWaveEnd.m */; };
+		50D6BA82208F25810042F5E0 /* AnimationBackEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA61208F25800042F5E0 /* AnimationBackEnd.m */; };
+		50D6BA83208F25810042F5E0 /* VCTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA64208F25800042F5E0 /* VCTransitionDelegate.m */; };
+		50D6BA84208F25810042F5E0 /* AnimationTiltBegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA65208F25800042F5E0 /* AnimationTiltBegin.m */; };
+		50D6BA85208F25810042F5E0 /* AnimationBackBegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA66208F25800042F5E0 /* AnimationBackBegin.m */; };
+		50D6BA86208F25810042F5E0 /* AnimationTildEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA67208F25800042F5E0 /* AnimationTildEnd.m */; };
+		50D6BA87208F25810042F5E0 /* AnimationFadeEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA68208F25800042F5E0 /* AnimationFadeEnd.m */; };
+		50D6BA88208F25810042F5E0 /* AnimationFadeBegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA6A208F25800042F5E0 /* AnimationFadeBegin.m */; };
+		50D6BA89208F25810042F5E0 /* AnimationScaleBegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA6B208F25800042F5E0 /* AnimationScaleBegin.m */; };
+		50D6BA8A208F25810042F5E0 /* UIViewController+HHTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA6C208F25800042F5E0 /* UIViewController+HHTransition.m */; };
+		50D6BA8B208F25810042F5E0 /* VCInteractionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA6D208F25800042F5E0 /* VCInteractionDelegate.m */; };
+		50D6BA8C208F25810042F5E0 /* AnimationWaveBegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA6E208F25800042F5E0 /* AnimationWaveBegin.m */; };
+		50D6BA8D208F25810042F5E0 /* AnimationErectBegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA6F208F25800042F5E0 /* AnimationErectBegin.m */; };
+		50D6BA8E208F25810042F5E0 /* UIView+HHConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA72208F25800042F5E0 /* UIView+HHConstraint.m */; };
+		50D6BA8F208F25810042F5E0 /* AnimationErectEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA73208F25800042F5E0 /* AnimationErectEnd.m */; };
+		50D6BA90208F25810042F5E0 /* AnimationScaleEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA78208F25800042F5E0 /* AnimationScaleEnd.m */; };
+		50D6BA91208F25810042F5E0 /* QuadrantRecognise.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA7B208F25800042F5E0 /* QuadrantRecognise.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		505D45432089CCA00062B838 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		505D45442089CCA00062B838 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		505D45472089CEA50062B838 /* InterScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterScaleViewController.h; sourceTree = "<group>"; };
+		505D45482089CEA50062B838 /* InterScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterScaleViewController.m; sourceTree = "<group>"; };
+		50A2B90F2087150B00C24583 /* HHTransitionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHTransitionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50A2B9122087150B00C24583 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		50A2B9132087150B00C24583 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		50A2B9152087150B00C24583 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		50A2B9162087150B00C24583 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		50A2B9192087150B00C24583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		50A2B91B2087150B00C24583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50A2B91E2087150B00C24583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		50A2B9202087150B00C24583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50A2B9212087150B00C24583 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		50A2B93E2087194800C24583 /* CircleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircleViewController.xib; sourceTree = "<group>"; };
+		50A2B93F2087194800C24583 /* BackScaleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackScaleViewController.xib; sourceTree = "<group>"; };
+		50A2B9402087194800C24583 /* BackScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackScaleViewController.m; sourceTree = "<group>"; };
+		50A2B9412087194800C24583 /* CircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleViewController.h; sourceTree = "<group>"; };
+		50A2B9422087194800C24583 /* CircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleViewController.m; sourceTree = "<group>"; };
+		50A2B9432087194800C24583 /* BackScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackScaleViewController.h; sourceTree = "<group>"; };
+		50D6BA5F208F25800042F5E0 /* AnimationWaveEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationWaveEnd.m; sourceTree = "<group>"; };
+		50D6BA60208F25800042F5E0 /* UIView+HHConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HHConstraint.h"; sourceTree = "<group>"; };
+		50D6BA61208F25800042F5E0 /* AnimationBackEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationBackEnd.m; sourceTree = "<group>"; };
+		50D6BA62208F25800042F5E0 /* QuadrantRecognise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadrantRecognise.h; sourceTree = "<group>"; };
+		50D6BA63208F25800042F5E0 /* AnimationScaleEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationScaleEnd.h; sourceTree = "<group>"; };
+		50D6BA64208F25800042F5E0 /* VCTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCTransitionDelegate.m; sourceTree = "<group>"; };
+		50D6BA65208F25800042F5E0 /* AnimationTiltBegin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationTiltBegin.m; sourceTree = "<group>"; };
+		50D6BA66208F25800042F5E0 /* AnimationBackBegin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationBackBegin.m; sourceTree = "<group>"; };
+		50D6BA67208F25800042F5E0 /* AnimationTildEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationTildEnd.m; sourceTree = "<group>"; };
+		50D6BA68208F25800042F5E0 /* AnimationFadeEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationFadeEnd.m; sourceTree = "<group>"; };
+		50D6BA69208F25800042F5E0 /* AnimationErectEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationErectEnd.h; sourceTree = "<group>"; };
+		50D6BA6A208F25800042F5E0 /* AnimationFadeBegin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationFadeBegin.m; sourceTree = "<group>"; };
+		50D6BA6B208F25800042F5E0 /* AnimationScaleBegin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationScaleBegin.m; sourceTree = "<group>"; };
+		50D6BA6C208F25800042F5E0 /* UIViewController+HHTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HHTransition.m"; sourceTree = "<group>"; };
+		50D6BA6D208F25800042F5E0 /* VCInteractionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCInteractionDelegate.m; sourceTree = "<group>"; };
+		50D6BA6E208F25800042F5E0 /* AnimationWaveBegin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationWaveBegin.m; sourceTree = "<group>"; };
+		50D6BA6F208F25800042F5E0 /* AnimationErectBegin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationErectBegin.m; sourceTree = "<group>"; };
+		50D6BA70208F25800042F5E0 /* AnimationWaveEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationWaveEnd.h; sourceTree = "<group>"; };
+		50D6BA71208F25800042F5E0 /* AnimationBackEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationBackEnd.h; sourceTree = "<group>"; };
+		50D6BA72208F25800042F5E0 /* UIView+HHConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHConstraint.m"; sourceTree = "<group>"; };
+		50D6BA73208F25800042F5E0 /* AnimationErectEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationErectEnd.m; sourceTree = "<group>"; };
+		50D6BA74208F25800042F5E0 /* AnimationFadeBegin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationFadeBegin.h; sourceTree = "<group>"; };
+		50D6BA75208F25800042F5E0 /* AnimationFadeEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationFadeEnd.h; sourceTree = "<group>"; };
+		50D6BA76208F25800042F5E0 /* AnimationTildEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationTildEnd.h; sourceTree = "<group>"; };
+		50D6BA77208F25800042F5E0 /* AnimationBackBegin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationBackBegin.h; sourceTree = "<group>"; };
+		50D6BA78208F25800042F5E0 /* AnimationScaleEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationScaleEnd.m; sourceTree = "<group>"; };
+		50D6BA79208F25800042F5E0 /* VCTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCTransitionDelegate.h; sourceTree = "<group>"; };
+		50D6BA7A208F25800042F5E0 /* AnimationTiltBegin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationTiltBegin.h; sourceTree = "<group>"; };
+		50D6BA7B208F25800042F5E0 /* QuadrantRecognise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadrantRecognise.m; sourceTree = "<group>"; };
+		50D6BA7C208F25800042F5E0 /* AnimationErectBegin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationErectBegin.h; sourceTree = "<group>"; };
+		50D6BA7D208F25800042F5E0 /* VCInteractionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCInteractionDelegate.h; sourceTree = "<group>"; };
+		50D6BA7E208F25800042F5E0 /* AnimationWaveBegin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationWaveBegin.h; sourceTree = "<group>"; };
+		50D6BA7F208F25800042F5E0 /* UIViewController+HHTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HHTransition.h"; sourceTree = "<group>"; };
+		50D6BA80208F25800042F5E0 /* AnimationScaleBegin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationScaleBegin.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50A2B90C2087150B00C24583 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50A2B9062087150B00C24583 = {
+			isa = PBXGroup;
+			children = (
+				50A2B9112087150B00C24583 /* HHTransitionDemo */,
+				50A2B9102087150B00C24583 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		50A2B9102087150B00C24583 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50A2B90F2087150B00C24583 /* HHTransitionDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50A2B9112087150B00C24583 /* HHTransitionDemo */ = {
+			isa = PBXGroup;
+			children = (
+				50D6BA5E208F25800042F5E0 /* HHTransition */,
+				50A2B9122087150B00C24583 /* AppDelegate.h */,
+				50A2B9132087150B00C24583 /* AppDelegate.m */,
+				50A2B9152087150B00C24583 /* ViewController.h */,
+				50A2B9162087150B00C24583 /* ViewController.m */,
+				50A2B9182087150B00C24583 /* Main.storyboard */,
+				50A2B9432087194800C24583 /* BackScaleViewController.h */,
+				50A2B9402087194800C24583 /* BackScaleViewController.m */,
+				50A2B93F2087194800C24583 /* BackScaleViewController.xib */,
+				50A2B9412087194800C24583 /* CircleViewController.h */,
+				50A2B9422087194800C24583 /* CircleViewController.m */,
+				50A2B93E2087194800C24583 /* CircleViewController.xib */,
+				505D45472089CEA50062B838 /* InterScaleViewController.h */,
+				505D45482089CEA50062B838 /* InterScaleViewController.m */,
+				505D45442089CCA00062B838 /* 1.jpg */,
+				505D45432089CCA00062B838 /* 2.jpg */,
+				50A2B91B2087150B00C24583 /* Assets.xcassets */,
+				50A2B91D2087150B00C24583 /* LaunchScreen.storyboard */,
+				50A2B9202087150B00C24583 /* Info.plist */,
+				50A2B9212087150B00C24583 /* main.m */,
+			);
+			path = HHTransitionDemo;
+			sourceTree = "<group>";
+		};
+		50D6BA5E208F25800042F5E0 /* HHTransition */ = {
+			isa = PBXGroup;
+			children = (
+				50D6BA7F208F25800042F5E0 /* UIViewController+HHTransition.h */,
+				50D6BA6C208F25800042F5E0 /* UIViewController+HHTransition.m */,
+				50D6BA79208F25800042F5E0 /* VCTransitionDelegate.h */,
+				50D6BA64208F25800042F5E0 /* VCTransitionDelegate.m */,
+				50D6BA7E208F25800042F5E0 /* AnimationWaveBegin.h */,
+				50D6BA6E208F25800042F5E0 /* AnimationWaveBegin.m */,
+				50D6BA70208F25800042F5E0 /* AnimationWaveEnd.h */,
+				50D6BA5F208F25800042F5E0 /* AnimationWaveEnd.m */,
+				50D6BA74208F25800042F5E0 /* AnimationFadeBegin.h */,
+				50D6BA6A208F25800042F5E0 /* AnimationFadeBegin.m */,
+				50D6BA75208F25800042F5E0 /* AnimationFadeEnd.h */,
+				50D6BA68208F25800042F5E0 /* AnimationFadeEnd.m */,
+				50D6BA7C208F25800042F5E0 /* AnimationErectBegin.h */,
+				50D6BA6F208F25800042F5E0 /* AnimationErectBegin.m */,
+				50D6BA69208F25800042F5E0 /* AnimationErectEnd.h */,
+				50D6BA73208F25800042F5E0 /* AnimationErectEnd.m */,
+				50D6BA7D208F25800042F5E0 /* VCInteractionDelegate.h */,
+				50D6BA6D208F25800042F5E0 /* VCInteractionDelegate.m */,
+				50D6BA80208F25800042F5E0 /* AnimationScaleBegin.h */,
+				50D6BA6B208F25800042F5E0 /* AnimationScaleBegin.m */,
+				50D6BA63208F25800042F5E0 /* AnimationScaleEnd.h */,
+				50D6BA78208F25800042F5E0 /* AnimationScaleEnd.m */,
+				50D6BA7A208F25800042F5E0 /* AnimationTiltBegin.h */,
+				50D6BA65208F25800042F5E0 /* AnimationTiltBegin.m */,
+				50D6BA76208F25800042F5E0 /* AnimationTildEnd.h */,
+				50D6BA67208F25800042F5E0 /* AnimationTildEnd.m */,
+				50D6BA77208F25800042F5E0 /* AnimationBackBegin.h */,
+				50D6BA66208F25800042F5E0 /* AnimationBackBegin.m */,
+				50D6BA71208F25800042F5E0 /* AnimationBackEnd.h */,
+				50D6BA61208F25800042F5E0 /* AnimationBackEnd.m */,
+				50D6BA62208F25800042F5E0 /* QuadrantRecognise.h */,
+				50D6BA7B208F25800042F5E0 /* QuadrantRecognise.m */,
+				50D6BA60208F25800042F5E0 /* UIView+HHConstraint.h */,
+				50D6BA72208F25800042F5E0 /* UIView+HHConstraint.m */,
+			);
+			path = HHTransition;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50A2B90E2087150B00C24583 /* HHTransitionDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50A2B9252087150B00C24583 /* Build configuration list for PBXNativeTarget "HHTransitionDemo" */;
+			buildPhases = (
+				50A2B90B2087150B00C24583 /* Sources */,
+				50A2B90C2087150B00C24583 /* Frameworks */,
+				50A2B90D2087150B00C24583 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HHTransitionDemo;
+			productName = HHTransitionDemo;
+			productReference = 50A2B90F2087150B00C24583 /* HHTransitionDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50A2B9072087150B00C24583 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "豫风";
+				TargetAttributes = {
+					50A2B90E2087150B00C24583 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 50A2B90A2087150B00C24583 /* Build configuration list for PBXProject "HHTransitionDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 50A2B9062087150B00C24583;
+			productRefGroup = 50A2B9102087150B00C24583 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50A2B90E2087150B00C24583 /* HHTransitionDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50A2B90D2087150B00C24583 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				505D45452089CCA00062B838 /* 2.jpg in Resources */,
+				50A2B91F2087150B00C24583 /* LaunchScreen.storyboard in Resources */,
+				50A2B91C2087150B00C24583 /* Assets.xcassets in Resources */,
+				50A2B9442087194800C24583 /* CircleViewController.xib in Resources */,
+				50A2B91A2087150B00C24583 /* Main.storyboard in Resources */,
+				50A2B9452087194800C24583 /* BackScaleViewController.xib in Resources */,
+				505D45462089CCA00062B838 /* 1.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50A2B90B2087150B00C24583 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50A2B9462087194800C24583 /* BackScaleViewController.m in Sources */,
+				50D6BA8F208F25810042F5E0 /* AnimationErectEnd.m in Sources */,
+				50D6BA86208F25810042F5E0 /* AnimationTildEnd.m in Sources */,
+				50D6BA84208F25810042F5E0 /* AnimationTiltBegin.m in Sources */,
+				50D6BA83208F25810042F5E0 /* VCTransitionDelegate.m in Sources */,
+				50A2B9172087150B00C24583 /* ViewController.m in Sources */,
+				50A2B9222087150B00C24583 /* main.m in Sources */,
+				50D6BA88208F25810042F5E0 /* AnimationFadeBegin.m in Sources */,
+				50D6BA81208F25810042F5E0 /* AnimationWaveEnd.m in Sources */,
+				50D6BA87208F25810042F5E0 /* AnimationFadeEnd.m in Sources */,
+				50D6BA8C208F25810042F5E0 /* AnimationWaveBegin.m in Sources */,
+				50D6BA90208F25810042F5E0 /* AnimationScaleEnd.m in Sources */,
+				50D6BA8B208F25810042F5E0 /* VCInteractionDelegate.m in Sources */,
+				50A2B9142087150B00C24583 /* AppDelegate.m in Sources */,
+				50D6BA85208F25810042F5E0 /* AnimationBackBegin.m in Sources */,
+				50D6BA91208F25810042F5E0 /* QuadrantRecognise.m in Sources */,
+				50D6BA8E208F25810042F5E0 /* UIView+HHConstraint.m in Sources */,
+				50D6BA8D208F25810042F5E0 /* AnimationErectBegin.m in Sources */,
+				50D6BA82208F25810042F5E0 /* AnimationBackEnd.m in Sources */,
+				50A2B9472087194800C24583 /* CircleViewController.m in Sources */,
+				50D6BA8A208F25810042F5E0 /* UIViewController+HHTransition.m in Sources */,
+				505D45492089CEA50062B838 /* InterScaleViewController.m in Sources */,
+				50D6BA89208F25810042F5E0 /* AnimationScaleBegin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		50A2B9182087150B00C24583 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50A2B9192087150B00C24583 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		50A2B91D2087150B00C24583 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50A2B91E2087150B00C24583 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		50A2B9232087150B00C24583 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		50A2B9242087150B00C24583 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50A2B9262087150B00C24583 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3P263BEBSC;
+				INFOPLIST_FILE = HHTransitionDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eruiglobal.HHTransition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50A2B9272087150B00C24583 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3P263BEBSC;
+				INFOPLIST_FILE = HHTransitionDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eruiglobal.HHTransition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50A2B90A2087150B00C24583 /* Build configuration list for PBXProject "HHTransitionDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50A2B9232087150B00C24583 /* Debug */,
+				50A2B9242087150B00C24583 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50A2B9252087150B00C24583 /* Build configuration list for PBXNativeTarget "HHTransitionDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50A2B9262087150B00C24583 /* Debug */,
+				50A2B9272087150B00C24583 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 50A2B9072087150B00C24583 /* Project object */;
+}
