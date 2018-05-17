@@ -38,6 +38,7 @@
     CATransform3D rotate = CATransform3DIdentity;
     rotate.m34 = -1.0 / 1000.0;
     rotate = CATransform3DRotate(rotate, 5.0 * M_PI/180.0, 1, 0, 0);
+    if([UIScreen mainScreen].bounds.size.height != 812.0f)
     rotate = CATransform3DTranslate(rotate, 0, -5, 0);
     
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
