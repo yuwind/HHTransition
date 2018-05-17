@@ -95,9 +95,10 @@ typedef enum : NSUInteger {
 - (void)hh_pushBackViewController:(UIViewController * _Nonnull)viewController;
 
 /**
- 缩放转场动画
+ CATransitin转场动画
  
  @param viewController 转场控制器
+ @param style 转场类型
  */
 - (void)hh_pushViewController:(UIViewController * _Nonnull)viewController sysStyle:(SysTransitonStyle)style;
 
