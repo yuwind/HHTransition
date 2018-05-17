@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5021D86F20AD657A003103EB /* AnimationTransitionBegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5021D86E20AD657A003103EB /* AnimationTransitionBegin.m */; };
+		5021D87220AD65AA003103EB /* AnimationTransitionEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 5021D87120AD65AA003103EB /* AnimationTransitionEnd.m */; };
 		505D45452089CCA00062B838 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 505D45432089CCA00062B838 /* 2.jpg */; };
 		505D45462089CCA00062B838 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 505D45442089CCA00062B838 /* 1.jpg */; };
 		505D45492089CEA50062B838 /* InterScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D45482089CEA50062B838 /* InterScaleViewController.m */; };
@@ -40,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5021D86D20AD657A003103EB /* AnimationTransitionBegin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationTransitionBegin.h; sourceTree = "<group>"; };
+		5021D86E20AD657A003103EB /* AnimationTransitionBegin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationTransitionBegin.m; sourceTree = "<group>"; };
+		5021D87020AD65AA003103EB /* AnimationTransitionEnd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationTransitionEnd.h; sourceTree = "<group>"; };
+		5021D87120AD65AA003103EB /* AnimationTransitionEnd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationTransitionEnd.m; sourceTree = "<group>"; };
 		505D45432089CCA00062B838 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		505D45442089CCA00062B838 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		505D45472089CEA50062B838 /* InterScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterScaleViewController.h; sourceTree = "<group>"; };
@@ -187,6 +193,10 @@
 				50D6BA7B208F25800042F5E0 /* QuadrantRecognise.m */,
 				50D6BA60208F25800042F5E0 /* UIView+HHConstraint.h */,
 				50D6BA72208F25800042F5E0 /* UIView+HHConstraint.m */,
+				5021D86D20AD657A003103EB /* AnimationTransitionBegin.h */,
+				5021D86E20AD657A003103EB /* AnimationTransitionBegin.m */,
+				5021D87020AD65AA003103EB /* AnimationTransitionEnd.h */,
+				5021D87120AD65AA003103EB /* AnimationTransitionEnd.m */,
 			);
 			path = HHTransition;
 			sourceTree = SOURCE_ROOT;
@@ -277,6 +287,7 @@
 				50D6BA81208F25810042F5E0 /* AnimationWaveEnd.m in Sources */,
 				50D6BA87208F25810042F5E0 /* AnimationFadeEnd.m in Sources */,
 				50D6BA8C208F25810042F5E0 /* AnimationWaveBegin.m in Sources */,
+				5021D86F20AD657A003103EB /* AnimationTransitionBegin.m in Sources */,
 				50D6BA90208F25810042F5E0 /* AnimationScaleEnd.m in Sources */,
 				50D6BA8B208F25810042F5E0 /* VCInteractionDelegate.m in Sources */,
 				50A2B9142087150B00C24583 /* AppDelegate.m in Sources */,
@@ -289,6 +300,7 @@
 				50D6BA8A208F25810042F5E0 /* UIViewController+HHTransition.m in Sources */,
 				505D45492089CEA50062B838 /* InterScaleViewController.m in Sources */,
 				50D6BA89208F25810042F5E0 /* AnimationScaleBegin.m in Sources */,
+				5021D87220AD65AA003103EB /* AnimationTransitionEnd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

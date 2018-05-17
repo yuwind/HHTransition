@@ -148,6 +148,10 @@ static char * const interactionDelegateKey = "interactionDelegateKey";
 {
     [self hh_pushViewController:viewController style:InteractionStyleBack];
 }
+- (void)hh_pushViewController:(UIViewController * _Nonnull)viewController sysStyle:(SysTransitonStyle)style
+{
+    [self hh_pushViewController:viewController style:(InteractionStyle)style];
+}
 - (void)hh_pushViewController:(UIViewController *)viewController style:(InteractionStyle)style
 {
     self.interactionDelegate = [VCInteractionDelegate interactionStyle:style];

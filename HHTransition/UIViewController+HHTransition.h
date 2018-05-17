@@ -54,6 +54,15 @@
 
 @end
 
+typedef enum : NSUInteger {
+    SysTransitonStyleCube = 4,
+    SysTransitonStyleSuckEffect,
+    SysTransitonStyleOglFlip,
+    SysTransitonStyleRippleEffect,
+    SysTransitonStylePageCurl,
+    SysTransitonStyleCameralIrisHollowOpen,
+} SysTransitonStyle;
+
 
 @interface UINavigationController (HHPush)
 
@@ -84,5 +93,12 @@
  @param viewController 转场控制器
  */
 - (void)hh_pushBackViewController:(UIViewController * _Nonnull)viewController;
+
+/**
+ 缩放转场动画
+ 
+ @param viewController 转场控制器
+ */
+- (void)hh_pushViewController:(UIViewController * _Nonnull)viewController sysStyle:(SysTransitonStyle)style;
 
 @end

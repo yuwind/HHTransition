@@ -27,6 +27,12 @@ NSString * pushStyle[] =
     @"InteractionStyleTilted",
     @"InteractionStyleErect",
     @"InteractionStyleBack",
+    @"TransitonStyleCube",
+    @"TransitonStyleSuckEffect",
+    @"TransitonStyleOglFlip",
+    @"TransitonStyleRippleEffect",
+    @"TransitonStylePageCurl",
+    @"TransitonStyleCameralIrisHollowOpen",
 };
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -76,9 +82,8 @@ NSString * pushStyle[] =
             return 3;
             break;
         case 1:
-            return 4;
+            return 10;
             break;
-            
         default:
             break;
     }
@@ -179,6 +184,30 @@ NSString * pushStyle[] =
             break;
         case 7:
             [self.navigationController hh_pushBackViewController:[CircleViewController new]];
+            break;
+        case 8:
+            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:4];
+            break;
+        case 9:
+            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:5];
+            break;
+        case 10:
+            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:6];
+            break;
+        case 11:
+            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:7];
+            break;
+        case 12:
+            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:8];
+            break;
+        case 13:
+            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:9];
+            break;
+        case 14:
+            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:10];
+            break;
+        case 15:
+            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:11];
             break;
         default:
             break;

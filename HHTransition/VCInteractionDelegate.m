@@ -15,6 +15,8 @@
 #import "AnimationErectEnd.h"
 #import "AnimationBackBegin.h"
 #import "AnimationBackEnd.h"
+#import "AnimationTransitionBegin.h"
+#import "AnimationTransitionEnd.h"
 
 @interface VCInteractionDelegate ()
 
@@ -62,6 +64,14 @@
             case InteractionStyleBack:
                 objc = [AnimationBackBegin new];
                 break;
+            case TransitonStyleCube:
+            case TransitonStyleSuckEffect:
+            case TransitonStyleOglFlip:
+            case TransitonStyleRippleEffect:
+            case TransitonStylePageCurl:
+            case TransitonStyleCameralIrisHollowOpen:
+                objc = [AnimationTransitionBegin animationStyle:_style];
+                break;
             default:
                 break;
         }
@@ -82,12 +92,19 @@
             case InteractionStyleBack:
                 objc = [AnimationBackEnd new];
                 break;
+            case TransitonStyleCube:
+            case TransitonStyleSuckEffect:
+            case TransitonStyleOglFlip:
+            case TransitonStyleRippleEffect:
+            case TransitonStylePageCurl:
+            case TransitonStyleCameralIrisHollowOpen:
+                objc = [AnimationTransitionEnd animationStyle:_style];
+                break;
             default:
                 break;
         }
         return objc;
     }
-    
     return nil;
 }
 

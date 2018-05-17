@@ -14,6 +14,12 @@ typedef enum : NSUInteger{
     InteractionStyleTilted,
     InteractionStyleErect,
     InteractionStyleBack,
+    TransitonStyleCube,
+    TransitonStyleSuckEffect,
+    TransitonStyleOglFlip,
+    TransitonStyleRippleEffect,
+    TransitonStylePageCurl,
+    TransitonStyleCameralIrisHollowOpen,
 } InteractionStyle;
 
 
