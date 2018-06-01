@@ -7,18 +7,11 @@
 //
 #import <UIKit/UIKit.h>
 
-typedef enum : NSUInteger{
-    TransitionStyleCircle,
-    TransitionStyleBackScale,
-    TransitionStyleErect,
-} TransitionStyle;
-
-
 
 @interface VCTransitionDelegate : NSObject<UIViewControllerTransitioningDelegate>
 
++ (instancetype)shareInstance;
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGPoint touchPoint;
-+ (instancetype)transitionStyle:(TransitionStyle)style;
 
 @end

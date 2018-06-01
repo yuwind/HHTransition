@@ -16,23 +16,24 @@
 
 NSString * presentStyle[] =
 {
-    @"TransitionStyleCircle",
-    @"TransitionStyleBackScale",
-    @"TransitionStyleErect",
+    @"AnimationStyleCircle",
+    @"AnimationStyleBackScale",
+    @"AnimationStyleErect",
+    @"AnimationStyleTilted",
 };
 
 NSString * pushStyle[] =
 {
-    @"InteractionStyleScale",
-    @"InteractionStyleTilted",
-    @"InteractionStyleErect",
-    @"InteractionStyleBack",
-    @"TransitonStyleCube",
-    @"TransitonStyleSuckEffect",
-    @"TransitonStyleOglFlip",
-    @"TransitonStyleRippleEffect",
-    @"TransitonStylePageCurl",
-    @"TransitonStyleCameralIrisHollowOpen",
+    @"AnimationStyleScale",
+    @"AnimationStyleErect",
+    @"AnimationStyleTilted",
+    @"AnimationStyleBack",
+    @"AnimationStyleCube",
+    @"AnimationStyleSuckEffect",
+    @"AnimationStyleOglFlip",
+    @"AnimationStyleRippleEffect",
+    @"AnimationStylePageCurl",
+    @"AnimationStyleCameralIrisHollowOpen",
 };
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -79,7 +80,7 @@ NSString * pushStyle[] =
 {
     switch (section) {
         case 0:
-            return 3;
+            return 4;
             break;
         case 1:
             return 10;
@@ -109,14 +110,14 @@ NSString * pushStyle[] =
             button.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width/2, 200);
             [cell.contentView addSubview:button];
             [button addTarget:self action:@selector(circleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-            button.tag = indexPath.row+3+1234;
+            button.tag = indexPath.row+4+1234;
             
             UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
             [button2 setImage:[UIImage imageNamed:@"2.jpg"] forState:UIControlStateNormal];
             button2.frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2, 0, [UIScreen mainScreen].bounds.size.width/2, 200);
             [cell.contentView addSubview:button2];
             [button2 addTarget:self action:@selector(circleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-            button2.tag = indexPath.row+4+1234;
+            button2.tag = indexPath.row+5+1234;
         }else{
             
             cell.textLabel.text =pushStyle[indexPath.row];
@@ -124,7 +125,7 @@ NSString * pushStyle[] =
             button.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60);
             [cell.contentView addSubview:button];
             [button addTarget:self action:@selector(circleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-            button.tag = indexPath.row+4+1234;
+            button.tag = indexPath.row+5+1234;
         }
     }
     return cell;
@@ -152,11 +153,11 @@ NSString * pushStyle[] =
         case 0:{
             CircleViewController *circleVC = [CircleViewController new];
             circleVC.isNeedShow = YES;
-            [self.navigationController hh_presentCircleVC:circleVC point:_touchPoint completion:nil];
+            [self hh_presentCircleVC:circleVC point:_touchPoint completion:nil];
         }
             break;
         case 1:
-            [self.navigationController hh_presentBackScaleVC:[BackScaleViewController new] height:400 completion:nil];
+            [self hh_presentBackScaleVC:[BackScaleViewController new] height:400 completion:nil];
             break;
         case 2:{
             CircleViewController *circleVC = [CircleViewController new];
@@ -165,49 +166,49 @@ NSString * pushStyle[] =
         }
             break;
         case 3:{
+            CircleViewController *circleVC = [CircleViewController new];
+            circleVC.isNeedShow = YES;
+            [self.navigationController hh_presentTiltedVC:circleVC completion:nil];
+        }
+            break;
+        case 4:{
             InterScaleViewController *interScale = [InterScaleViewController new];
             interScale.imageName = [UIImage imageNamed:@"1.jpg"];
             [self.navigationController hh_pushScaleViewController:interScale];
         }
             break;
-        case 4:{
+        case 5:{
             InterScaleViewController *interScale = [InterScaleViewController new];
             interScale.imageName = [UIImage imageNamed:@"2.jpg"];
             [self.navigationController hh_pushScaleViewController:interScale];
         }
             break;
-        case 5:
-            [self.navigationController hh_pushTiltViewController:[CircleViewController new]];
-            break;
         case 6:
             [self.navigationController hh_pushErectViewController:[CircleViewController new]];
             break;
         case 7:
-            [self.navigationController hh_pushBackViewController:[CircleViewController new]];
+            [self.navigationController hh_pushTiltViewController:[CircleViewController new]];
             break;
         case 8:
-            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:4];
+            [self.navigationController hh_pushBackViewController:[CircleViewController new]];
             break;
         case 9:
-            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:5];
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleCube];
             break;
         case 10:
-            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:6];
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleSuckEffect];
             break;
         case 11:
-            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:7];
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleOglFlip];
             break;
         case 12:
-            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:8];
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleRippleEffect];
             break;
         case 13:
-            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:9];
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStylePageCurl];
             break;
         case 14:
-            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:10];
-            break;
-        case 15:
-            [self.navigationController hh_pushViewController:[CircleViewController new] sysStyle:11];
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleCameralIrisHollowOpen];
             break;
         default:
             break;

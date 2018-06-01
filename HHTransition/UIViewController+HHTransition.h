@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+HHConstraint.h"
+#import "AnimationStyle.h"
 
 @interface UIViewController (HHPresent)
+
+@property (nonatomic, assign) AnimationStyle animationStyle;
 
 /**
  背部缩隐式
@@ -28,6 +31,14 @@
  @param completion 回调函数
  */
 - (void)hh_presentCircleVC:(UIViewController * _Nonnull)controller point:(CGPoint)point completion:(void (^ __nullable)(void))completion;
+
+/**
+ 旋转样式
+ 
+ @param controller 控制器
+ @param completion 回调函数
+ */
+- (void)hh_presentTiltedVC:(UIViewController * _Nonnull)controller completion:(void (^ __nullable)(void))completion;
 
 /**
  垂直折叠式
@@ -54,17 +65,16 @@
 
 @end
 
-typedef enum : NSUInteger {
-    SysTransitonStyleCube = 4,
-    SysTransitonStyleSuckEffect,
-    SysTransitonStyleOglFlip,
-    SysTransitonStyleRippleEffect,
-    SysTransitonStylePageCurl,
-    SysTransitonStyleCameralIrisHollowOpen,
-} SysTransitonStyle;
-
 
 @interface UINavigationController (HHPush)
+
+/**
+ CATransitin转场动画
+ 
+ @param viewController 转场控制器
+ @param style 转场类型
+ */
+- (void)hh_pushViewController:(UIViewController * _Nonnull)viewController style:(AnimationStyle)style;
 
 /**
  连续转场动画，需要实现方法`hh_transitionAnimationView`传递视图
@@ -94,12 +104,5 @@ typedef enum : NSUInteger {
  */
 - (void)hh_pushBackViewController:(UIViewController * _Nonnull)viewController;
 
-/**
- CATransitin转场动画
- 
- @param viewController 转场控制器
- @param style 转场类型
- */
-- (void)hh_pushViewController:(UIViewController * _Nonnull)viewController sysStyle:(SysTransitonStyle)style;
 
 @end

@@ -1,6 +1,6 @@
 //
 //  AnimationTransitionEnd.m
-//  HHTransitionDemo
+//  https://github.com/yuwind/HHTransition
 //
 //  Created by 豫风 on 2018/5/17.
 //  Copyright © 2018年 豫风. All rights reserved.
@@ -10,14 +10,14 @@
 
 @interface AnimationTransitionEnd()<CAAnimationDelegate>
 
-@property (nonatomic, assign) InteractionStyle style;
+@property (nonatomic, assign) AnimationStyle style;
 @property (nonatomic, strong) id<UIViewControllerContextTransitioning>transitionContext;
 
 @end
 
 @implementation AnimationTransitionEnd
 
-+ (instancetype)animationStyle:(InteractionStyle)style
++ (instancetype)animationStyle:(AnimationStyle)style
 {
     AnimationTransitionEnd *animation = [AnimationTransitionEnd new];
     animation.style = style;
@@ -41,30 +41,30 @@
     animation.duration = [self transitionDuration:transitionContext];
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     switch (_style) {
-        case TransitonStyleCube:{
+        case AnimationStyleCube:{
             animation.type = @"cube";
             animation.subtype = kCATransitionFromLeft;
         }
             break;
-        case TransitonStyleSuckEffect:{
+        case AnimationStyleSuckEffect:{
             animation.type = @"suckEffect";
         }
             break;
-        case TransitonStyleOglFlip:{
+        case AnimationStyleOglFlip:{
             animation.type = @"oglFlip";
             animation.subtype = kCATransitionFromRight;
         }
             break;
-        case TransitonStyleRippleEffect:{
+        case AnimationStyleRippleEffect:{
             animation.type = @"rippleEffect";
         }
             break;
-        case TransitonStylePageCurl:{
+        case AnimationStylePageCurl:{
             animation.type = @"pageCurl";
             animation.subtype = kCATransitionFromLeft;
         }
             break;
-        case TransitonStyleCameralIrisHollowOpen:{
+        case AnimationStyleCameralIrisHollowOpen:{
             animation.type = @"cameralIrisHollowOpen";
         }
             break;

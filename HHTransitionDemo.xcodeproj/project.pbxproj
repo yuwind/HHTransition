@@ -50,6 +50,7 @@
 		505D45442089CCA00062B838 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		505D45472089CEA50062B838 /* InterScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterScaleViewController.h; sourceTree = "<group>"; };
 		505D45482089CEA50062B838 /* InterScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterScaleViewController.m; sourceTree = "<group>"; };
+		508E5B4D20C134EC0006687C /* AnimationStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationStyle.h; sourceTree = "<group>"; };
 		50A2B90F2087150B00C24583 /* HHTransitionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHTransitionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A2B9122087150B00C24583 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50A2B9132087150B00C24583 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -159,6 +160,7 @@
 		50D6BA5E208F25800042F5E0 /* HHTransition */ = {
 			isa = PBXGroup;
 			children = (
+				508E5B4D20C134EC0006687C /* AnimationStyle.h */,
 				50D6BA7F208F25800042F5E0 /* UIViewController+HHTransition.h */,
 				50D6BA6C208F25800042F5E0 /* UIViewController+HHTransition.m */,
 				50D6BA79208F25800042F5E0 /* VCTransitionDelegate.h */,

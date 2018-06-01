@@ -6,6 +6,7 @@
 //  Copyright © 2017年 豫风. All rights reserved.
 //
 
+#import "UIViewController+HHTransition.h"
 #import "VCTransitionDelegate.h"
 #import "AnimationFadeBegin.h"
 #import "AnimationFadeEnd.h"
@@ -13,35 +14,36 @@
 #import "AnimationWaveEnd.h"
 #import "AnimationErectBegin.h"
 #import "AnimationErectEnd.h"
-
-@interface VCTransitionDelegate ()
-
-@property (nonatomic, assign) TransitionStyle animationStyle;
-
-@end
-
+#import "AnimationTiltBegin.h"
+#import "AnimationTildEnd.h"
 
 @implementation VCTransitionDelegate
 
-+ (instancetype)transitionStyle:(TransitionStyle)style
++ (instancetype)shareInstance
 {
-    VCTransitionDelegate * transitionDele = [[VCTransitionDelegate alloc]init];
-    transitionDele.animationStyle = style;
-    return transitionDele;
+    static VCTransitionDelegate *_instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _instance = [VCTransitionDelegate new];
+    });
+    return _instance;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
     id<UIViewControllerAnimatedTransitioning> objc = nil;
-    switch (_animationStyle) {
-        case TransitionStyleBackScale:
+    switch (presented.animationStyle) {
+        case AnimationStyleBackScale:
             objc = [AnimationFadeBegin animationHeight:_height];
             break;
-        case TransitionStyleCircle:
+        case AnimationStyleCircle:
             objc = [AnimationWaveBegin animationOrigin:_touchPoint];
             break;
-        case TransitionStyleErect:
+        case AnimationStyleErect:
             objc = [AnimationErectBegin animationIsInteraction:NO];
+            break;
+        case AnimationStyleTilted:
+            objc = [AnimationTiltBegin new];
             break;
         default:
             break;
@@ -52,15 +54,18 @@
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
 {
     id<UIViewControllerAnimatedTransitioning> objc = nil;
-    switch (_animationStyle) {
-        case TransitionStyleBackScale:
+    switch (dismissed.animationStyle) {
+        case AnimationStyleBackScale:
             objc = [AnimationFadeEnd animationHeight:_height];
             break;
-        case TransitionStyleCircle:
+        case AnimationStyleCircle:
             objc = [AnimationWaveEnd animationOrigin:_touchPoint];
             break;
-        case TransitionStyleErect:
+        case AnimationStyleErect:
             objc = [AnimationErectEnd new];
+            break;
+        case AnimationStyleTilted:
+            objc = [AnimationTildEnd new];
             break;
         default:
             break;

@@ -27,11 +27,12 @@
     snapShot.layer.anchorPoint = CGPointMake(0.5, 1.5);
     snapShot.layer.position = CGPointMake(snapShot.bounds.size.width * 0.5, snapShot.bounds.size.height * 1.5);
     snapShot.transform = CGAffineTransformIdentity;
-    
+    fromView.hidden = YES;
     [UIView animateWithDuration:0.3 animations:^{
         snapShot.transform = CGAffineTransformMakeRotation(M_PI_4);
     } completion:^(BOOL finished) {
         
+        fromView.hidden = NO;
         [snapShot removeFromSuperview];
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];

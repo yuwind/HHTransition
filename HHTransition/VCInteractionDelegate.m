@@ -17,10 +17,10 @@
 #import "AnimationBackEnd.h"
 #import "AnimationTransitionBegin.h"
 #import "AnimationTransitionEnd.h"
+#import "UIViewController+HHTransition.h"
 
 @interface VCInteractionDelegate ()
 
-@property (nonatomic, assign) InteractionStyle style;
 @property (nonatomic, assign) BOOL isPop;
 @property (nonatomic, assign) BOOL isInteraction;
 
@@ -28,12 +28,14 @@
 
 @implementation VCInteractionDelegate
 
-
-+ (instancetype)interactionStyle:(InteractionStyle)style
++ (instancetype)shareInstance
 {
-    VCInteractionDelegate *interaction = [[VCInteractionDelegate alloc]init];
-    interaction.style = style;
-    return interaction;
+    static VCInteractionDelegate *_instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _instance = [VCInteractionDelegate new];
+    });
+    return _instance;
 }
 
 - (nullable id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
@@ -51,26 +53,26 @@
     if(operation == UINavigationControllerOperationPush)
     {
         _isPop = NO;
-        switch (_style) {
-            case InteractionStyleScale:
+        switch (toVC.animationStyle) {
+            case AnimationStyleScale:
                 objc = [AnimationScaleBegin new];
                 break;
-            case InteractionStyleTilted:
+            case AnimationStyleTilted:
                 objc = [AnimationTiltBegin new];
                 break;
-            case InteractionStyleErect:
+            case AnimationStyleErect:
                 objc = [AnimationErectBegin animationIsInteraction:YES];
                 break;
-            case InteractionStyleBack:
+            case AnimationStyleBack:
                 objc = [AnimationBackBegin new];
                 break;
-            case TransitonStyleCube:
-            case TransitonStyleSuckEffect:
-            case TransitonStyleOglFlip:
-            case TransitonStyleRippleEffect:
-            case TransitonStylePageCurl:
-            case TransitonStyleCameralIrisHollowOpen:
-                objc = [AnimationTransitionBegin animationStyle:_style];
+            case AnimationStyleCube:
+            case AnimationStyleSuckEffect:
+            case AnimationStyleOglFlip:
+            case AnimationStyleRippleEffect:
+            case AnimationStylePageCurl:
+            case AnimationStyleCameralIrisHollowOpen:
+                objc = [AnimationTransitionBegin animationStyle:toVC.animationStyle];
                 break;
             default:
                 break;
@@ -79,26 +81,26 @@
     }else if (operation == UINavigationControllerOperationPop)
     {
         _isPop = YES;
-        switch (_style) {
-            case InteractionStyleScale:
+        switch (fromVC.animationStyle) {
+            case AnimationStyleScale:
                 objc = [AnimationScaleEnd new];;
                 break;
-            case InteractionStyleTilted:
+            case AnimationStyleTilted:
                 objc = [AnimationTildEnd new];;
                 break;
-            case InteractionStyleErect:
+            case AnimationStyleErect:
                 objc = [AnimationErectEnd new];;
                 break;
-            case InteractionStyleBack:
+            case AnimationStyleBack:
                 objc = [AnimationBackEnd new];
                 break;
-            case TransitonStyleCube:
-            case TransitonStyleSuckEffect:
-            case TransitonStyleOglFlip:
-            case TransitonStyleRippleEffect:
-            case TransitonStylePageCurl:
-            case TransitonStyleCameralIrisHollowOpen:
-                objc = [AnimationTransitionEnd animationStyle:_style];
+            case AnimationStyleCube:
+            case AnimationStyleSuckEffect:
+            case AnimationStyleOglFlip:
+            case AnimationStyleRippleEffect:
+            case AnimationStylePageCurl:
+            case AnimationStyleCameralIrisHollowOpen:
+                objc = [AnimationTransitionEnd animationStyle:fromVC.animationStyle];
                 break;
             default:
                 break;
@@ -139,28 +141,28 @@
 }
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(navigationController:willShowViewController:animated:)]) {
+    if (self.delegate && self.delegate !=self && [self.delegate respondsToSelector:@selector(navigationController:willShowViewController:animated:)]) {
         [self.delegate navigationController:navigationController willShowViewController:viewController animated:animated];
     }
 }
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(navigationController:didShowViewController:animated:)]) {
+    if (self.delegate && self.delegate !=self && [self.delegate respondsToSelector:@selector(navigationController:didShowViewController:animated:)]) {
         [self.delegate navigationController:navigationController didShowViewController:viewController animated:animated];
     }
 }
 
 - (UIInterfaceOrientationMask)navigationControllerSupportedInterfaceOrientations:(UINavigationController *)navigationController
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(navigationControllerSupportedInterfaceOrientations:)]) {
+    if (self.delegate && self.delegate !=self && [self.delegate respondsToSelector:@selector(navigationControllerSupportedInterfaceOrientations:)]) {
         return [self.delegate navigationControllerSupportedInterfaceOrientations:navigationController];
     }
     return UIInterfaceOrientationMaskPortrait;
 }
 - (UIInterfaceOrientation)navigationControllerPreferredInterfaceOrientationForPresentation:(UINavigationController *)navigationController
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(navigationControllerPreferredInterfaceOrientationForPresentation:)]) {
+    if (self.delegate && self.delegate !=self && [self.delegate respondsToSelector:@selector(navigationControllerPreferredInterfaceOrientationForPresentation:)]) {
         return [self.delegate navigationControllerPreferredInterfaceOrientationForPresentation:navigationController];
     }
     return UIInterfaceOrientationUnknown;
