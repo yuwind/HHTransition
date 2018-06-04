@@ -193,12 +193,12 @@
 				50D6BA61208F25800042F5E0 /* AnimationBackEnd.m */,
 				50D6BA62208F25800042F5E0 /* QuadrantRecognise.h */,
 				50D6BA7B208F25800042F5E0 /* QuadrantRecognise.m */,
-				50D6BA60208F25800042F5E0 /* UIView+HHConstraint.h */,
-				50D6BA72208F25800042F5E0 /* UIView+HHConstraint.m */,
 				5021D86D20AD657A003103EB /* AnimationTransitionBegin.h */,
 				5021D86E20AD657A003103EB /* AnimationTransitionBegin.m */,
 				5021D87020AD65AA003103EB /* AnimationTransitionEnd.h */,
 				5021D87120AD65AA003103EB /* AnimationTransitionEnd.m */,
+				50D6BA60208F25800042F5E0 /* UIView+HHConstraint.h */,
+				50D6BA72208F25800042F5E0 /* UIView+HHConstraint.m */,
 			);
 			path = HHTransition;
 			sourceTree = SOURCE_ROOT;
