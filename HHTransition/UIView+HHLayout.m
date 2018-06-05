@@ -1,12 +1,12 @@
 //
-//  UIView+HHConstraint.m
+//  UIView+HHLayout.m
 //  https://github.com/yuwind/HHLayout
 //
 //  Created by 豫风 on 2017/12/7.
 //  Copyright © 2017年 豫风. All rights reserved.
 //
 
-#import "UIView+HHConstraint.h"
+#import "UIView+HHLayout.h"
 #import <objc/runtime.h>
 
 static char * const topConstraintKey        = "topConstraintKey";
@@ -44,7 +44,7 @@ static char * const relativeViewKey         = "relativeViewKey";
 
 @end
 
-@implementation UIView (HHConstraint)
+@implementation UIView (HHLayout)
 
 - (void)setX:(CGFloat)x
 {
@@ -149,6 +149,7 @@ static char * const relativeViewKey         = "relativeViewKey";
     centerPoint.y = centerY;
     self.center = centerPoint;
 }
+
 
 - (void)setRelativeView:(UIView *)relativeView
 {
@@ -339,6 +340,16 @@ static char * const relativeViewKey         = "relativeViewKey";
     }
     return self;
 }
+- (UIView *)cent_
+{
+    if (![self.layoutArrayM containsObject:@(NSLayoutAttributeCenterX)]) {
+        [self.layoutArrayM addObject:@(NSLayoutAttributeCenterX)];
+    }
+    if (![self.layoutArrayM containsObject:@(NSLayoutAttributeCenterY)]) {
+        [self.layoutArrayM addObject:@(NSLayoutAttributeCenterY)];
+    }
+    return self;
+}
 - (UIView *)centX
 {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeCenterX)]) {
@@ -386,7 +397,7 @@ static char * const relativeViewKey         = "relativeViewKey";
     return ^UIView *(NSNumber *first,...){
         va_list args;
         va_start(args, first);
-        for (NSNumber *constant = first; [constant isKindOfClass:[NSNumber class]]; constant = va_arg(args, NSNumber *)) {
+        for (NSNumber *constant = first; constant!=nil&&[constant isKindOfClass:[NSNumber class]]; constant = va_arg(args, NSNumber *)) {
             [self.equalToArrayM addObject:constant];
         }
         va_end(args);
@@ -511,10 +522,10 @@ static char * const relativeViewKey         = "relativeViewKey";
 {
     self.translatesAutoresizingMaskIntoConstraints = NO;
     if (self.relativeView) {
-        int index = 0;
+        int index = -1;
         for (int i = 0; i<self.layoutArrayM.count; i++) {
             NSInteger relative = self.relativeView.layoutArrayM.count>i?self.relativeView.layoutArrayM[i].integerValue:self.layoutArrayM[i].integerValue;
-            CGFloat constant = self.offsetArrayM.count>i?[self countConstant:i index:&index]:self.equalToArrayM.count>(i-index-1<0?0:i-index-1)?self.equalToArrayM[i-index-1<0?0:i-index-1].floatValue:0.0f;
+            CGFloat constant = self.offsetArrayM.count>i?[self countConstant:i index:&index]:index==-1?self.equalToArrayM.count>i?self.equalToArrayM[i].floatValue:0.0f:self.equalToArrayM.count>=i-index?self.equalToArrayM[i-index-1].floatValue:0.0f;
             [self readyDeploy:self.layoutArrayM[i].integerValue relative:relative view:self.relativeView equalTo:constant];
         }
     }else if (self.equalToArrayM.count) {
@@ -535,60 +546,70 @@ static char * const relativeViewKey         = "relativeViewKey";
     switch (source) {
         case NSLayoutAttributeLeft:
         {
+            if(self.hh_leftCS){[self.superview removeConstraint:self.hh_leftCS];}
             self.hh_leftCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeLeft relatedBy:(NSLayoutRelationEqual) toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_leftCS];
         }
             break;
         case NSLayoutAttributeRight:
         {
+            if(self.hh_rightCS){[self.superview removeConstraint:self.hh_rightCS];}
             self.hh_rightCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeRight relatedBy:(NSLayoutRelationEqual) toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_rightCS];
         }
             break;
         case NSLayoutAttributeTop:
         {
+            if(self.hh_topCS){[self.superview removeConstraint:self.hh_topCS];}
             self.hh_topCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeTop relatedBy:(NSLayoutRelationEqual) toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_topCS];
         }
             break;
         case NSLayoutAttributeBottom:
         {
+            if(self.hh_bottomCS){[self.superview removeConstraint:self.hh_bottomCS];}
             self.hh_bottomCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeBottom relatedBy:(NSLayoutRelationEqual) toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_bottomCS];
         }
             break;
         case NSLayoutAttributeLeading:
         {
+            if(self.hh_leadingCS){[self.superview removeConstraint:self.hh_leadingCS];}
             self.hh_leadingCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeLeading relatedBy:(NSLayoutRelationEqual) toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_leadingCS];
         }
             break;
         case NSLayoutAttributeTrailing:
         {
+            if(self.hh_trailingCS){[self.superview removeConstraint:self.hh_trailingCS];}
             self.hh_trailingCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeTrailing relatedBy:(NSLayoutRelationEqual) toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_trailingCS];
         }
             break;
         case NSLayoutAttributeWidth:
         {
-            self.hh_widthCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:(NSLayoutRelationEqual) toItem:(self.equalToArrayM.count&&constant)?nil:view?:nil attribute:relative multiplier:1.0 constant:constant];
+            if(self.hh_widthCS){[self.equalToArrayM.count&&constant?self:view?self.superview:self removeConstraint:self.hh_widthCS];}
+            self.hh_widthCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:(NSLayoutRelationEqual) toItem:self.equalToArrayM.count&&constant?nil:view?:nil attribute:relative multiplier:1.0 constant:constant];
             [self.equalToArrayM.count&&constant?self:view?self.superview:self addConstraint:self.hh_widthCS];
         }
             break;
         case NSLayoutAttributeHeight:
         {
-            self.hh_heightCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:(NSLayoutRelationEqual) toItem:(self.equalToArrayM.count&&constant)?nil:view?:nil attribute:relative multiplier:1.0 constant:constant];
+            if(self.hh_heightCS){[self.equalToArrayM.count&&constant?self:view?self.superview:self removeConstraint:self.hh_heightCS];}
+            self.hh_heightCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:(NSLayoutRelationEqual) toItem:self.equalToArrayM.count&&constant?nil:view?:nil attribute:relative multiplier:1.0 constant:constant];
             [self.equalToArrayM.count&&constant?self:view?self.superview:self addConstraint:self.hh_heightCS];
         }
             break;
         case NSLayoutAttributeCenterX:
         {
+            if(self.hh_centerXCS){[self.superview removeConstraint:self.hh_centerXCS];}
             self.hh_centerXCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:(NSLayoutRelationEqual) toItem:view attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_centerXCS];
         }
             break;
         case NSLayoutAttributeCenterY:
         {
+            if(self.hh_centerYCS){[self.superview removeConstraint:self.hh_centerYCS];}
             self.hh_centerYCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterY relatedBy:(NSLayoutRelationEqual) toItem:view attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_centerYCS];
         }

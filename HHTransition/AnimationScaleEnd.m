@@ -8,7 +8,7 @@
 
 #import "AnimationScaleEnd.h"
 #import "UIViewController+HHTransition.h"
-#import "UIView+HHConstraint.h"
+#import "UIView+HHLayout.h"
 
 @implementation AnimationScaleEnd
 

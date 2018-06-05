@@ -11,7 +11,7 @@
 #import "BackScaleViewController.h"
 #import "CircleViewController.h"
 #import "UIViewController+HHTransition.h"
-#import "UIView+HHConstraint.h"
+#import "UIView+HHLayout.h"
 #import "InterScaleViewController.h"
 
 NSString * presentStyle[] =

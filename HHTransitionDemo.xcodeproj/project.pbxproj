@@ -12,6 +12,7 @@
 		505D45452089CCA00062B838 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 505D45432089CCA00062B838 /* 2.jpg */; };
 		505D45462089CCA00062B838 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 505D45442089CCA00062B838 /* 1.jpg */; };
 		505D45492089CEA50062B838 /* InterScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D45482089CEA50062B838 /* InterScaleViewController.m */; };
+		5069F2CA20C62290003D103F /* UIView+HHLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069F2C920C62290003D103F /* UIView+HHLayout.m */; };
 		50A2B9142087150B00C24583 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A2B9132087150B00C24583 /* AppDelegate.m */; };
 		50A2B9172087150B00C24583 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A2B9162087150B00C24583 /* ViewController.m */; };
 		50A2B91A2087150B00C24583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A2B9182087150B00C24583 /* Main.storyboard */; };
@@ -35,7 +36,6 @@
 		50D6BA8B208F25810042F5E0 /* VCInteractionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA6D208F25800042F5E0 /* VCInteractionDelegate.m */; };
 		50D6BA8C208F25810042F5E0 /* AnimationWaveBegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA6E208F25800042F5E0 /* AnimationWaveBegin.m */; };
 		50D6BA8D208F25810042F5E0 /* AnimationErectBegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA6F208F25800042F5E0 /* AnimationErectBegin.m */; };
-		50D6BA8E208F25810042F5E0 /* UIView+HHConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA72208F25800042F5E0 /* UIView+HHConstraint.m */; };
 		50D6BA8F208F25810042F5E0 /* AnimationErectEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA73208F25800042F5E0 /* AnimationErectEnd.m */; };
 		50D6BA90208F25810042F5E0 /* AnimationScaleEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA78208F25800042F5E0 /* AnimationScaleEnd.m */; };
 		50D6BA91208F25810042F5E0 /* QuadrantRecognise.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA7B208F25800042F5E0 /* QuadrantRecognise.m */; };
@@ -50,6 +50,8 @@
 		505D45442089CCA00062B838 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		505D45472089CEA50062B838 /* InterScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterScaleViewController.h; sourceTree = "<group>"; };
 		505D45482089CEA50062B838 /* InterScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterScaleViewController.m; sourceTree = "<group>"; };
+		5069F2C820C62290003D103F /* UIView+HHLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HHLayout.h"; sourceTree = "<group>"; };
+		5069F2C920C62290003D103F /* UIView+HHLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHLayout.m"; sourceTree = "<group>"; };
 		508E5B4D20C134EC0006687C /* AnimationStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationStyle.h; sourceTree = "<group>"; };
 		50A2B90F2087150B00C24583 /* HHTransitionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHTransitionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A2B9122087150B00C24583 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,7 +70,6 @@
 		50A2B9422087194800C24583 /* CircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleViewController.m; sourceTree = "<group>"; };
 		50A2B9432087194800C24583 /* BackScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackScaleViewController.h; sourceTree = "<group>"; };
 		50D6BA5F208F25800042F5E0 /* AnimationWaveEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationWaveEnd.m; sourceTree = "<group>"; };
-		50D6BA60208F25800042F5E0 /* UIView+HHConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HHConstraint.h"; sourceTree = "<group>"; };
 		50D6BA61208F25800042F5E0 /* AnimationBackEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationBackEnd.m; sourceTree = "<group>"; };
 		50D6BA62208F25800042F5E0 /* QuadrantRecognise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadrantRecognise.h; sourceTree = "<group>"; };
 		50D6BA63208F25800042F5E0 /* AnimationScaleEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationScaleEnd.h; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		50D6BA6F208F25800042F5E0 /* AnimationErectBegin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationErectBegin.m; sourceTree = "<group>"; };
 		50D6BA70208F25800042F5E0 /* AnimationWaveEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationWaveEnd.h; sourceTree = "<group>"; };
 		50D6BA71208F25800042F5E0 /* AnimationBackEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationBackEnd.h; sourceTree = "<group>"; };
-		50D6BA72208F25800042F5E0 /* UIView+HHConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHConstraint.m"; sourceTree = "<group>"; };
 		50D6BA73208F25800042F5E0 /* AnimationErectEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationErectEnd.m; sourceTree = "<group>"; };
 		50D6BA74208F25800042F5E0 /* AnimationFadeBegin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationFadeBegin.h; sourceTree = "<group>"; };
 		50D6BA75208F25800042F5E0 /* AnimationFadeEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationFadeEnd.h; sourceTree = "<group>"; };
@@ -197,8 +197,8 @@
 				5021D86E20AD657A003103EB /* AnimationTransitionBegin.m */,
 				5021D87020AD65AA003103EB /* AnimationTransitionEnd.h */,
 				5021D87120AD65AA003103EB /* AnimationTransitionEnd.m */,
-				50D6BA60208F25800042F5E0 /* UIView+HHConstraint.h */,
-				50D6BA72208F25800042F5E0 /* UIView+HHConstraint.m */,
+				5069F2C820C62290003D103F /* UIView+HHLayout.h */,
+				5069F2C920C62290003D103F /* UIView+HHLayout.m */,
 			);
 			path = HHTransition;
 			sourceTree = SOURCE_ROOT;
@@ -295,9 +295,9 @@
 				50A2B9142087150B00C24583 /* AppDelegate.m in Sources */,
 				50D6BA85208F25810042F5E0 /* AnimationBackBegin.m in Sources */,
 				50D6BA91208F25810042F5E0 /* QuadrantRecognise.m in Sources */,
-				50D6BA8E208F25810042F5E0 /* UIView+HHConstraint.m in Sources */,
 				50D6BA8D208F25810042F5E0 /* AnimationErectBegin.m in Sources */,
 				50D6BA82208F25810042F5E0 /* AnimationBackEnd.m in Sources */,
+				5069F2CA20C62290003D103F /* UIView+HHLayout.m in Sources */,
 				50A2B9472087194800C24583 /* CircleViewController.m in Sources */,
 				50D6BA8A208F25810042F5E0 /* UIViewController+HHTransition.m in Sources */,
 				505D45492089CEA50062B838 /* InterScaleViewController.m in Sources */,
@@ -441,7 +441,7 @@
 				INFOPLIST_FILE = HHTransitionDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.eruiglobal.HHTransition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yufeng.HHTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -456,7 +456,7 @@
 				INFOPLIST_FILE = HHTransitionDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.eruiglobal.HHTransition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yufeng.HHTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

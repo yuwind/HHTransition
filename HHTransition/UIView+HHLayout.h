@@ -1,5 +1,5 @@
 //
-//  UIView+HHConstraint.h
+//  UIView+HHLayout.h
 //  https://github.com/yuwind/HHLayout
 //
 //  Created by 豫风 on 2017/12/7.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (HHConstraint)
+@interface UIView (HHLayout)
 
 /**
  非约束方式
@@ -27,6 +27,7 @@
 /**
  约束方式
  */
+
 @property (nonatomic, assign, readonly) UIView * top_;
 @property (nonatomic, assign, readonly) UIView * left_;
 @property (nonatomic, assign, readonly) UIView * bott_;
@@ -35,17 +36,19 @@
 @property (nonatomic, assign, readonly) UIView * heit_;
 @property (nonatomic, assign, readonly) UIView * lead_;
 @property (nonatomic, assign, readonly) UIView * trai_;
+@property (nonatomic, assign, readonly) UIView * cent_;
 @property (nonatomic, assign, readonly) UIView * centX;
 @property (nonatomic, assign, readonly) UIView * centY;
 @property (nonatomic, assign, readonly) UIView * size_;
 @property (nonatomic, assign, readonly) UIView * (^equalTo)(UIView *);
 @property (nonatomic, assign, readonly) UIView * (^constant)(CGFloat);
-@property (nonatomic, assign, readonly) UIView * (^constList)(NSNumber *,...);
+@property (nonatomic, assign, readonly) UIView * (^constList)(NSNumber *,...);//需要以nil结尾
 @property (nonatomic, assign, readonly) UIView * (^offset)(CGFloat);
 @property (nonatomic, assign, readonly) UIView * (^install)(void);
 
+
 /**
- 快速创建约束
+ 快速添加约束
  */
 @property (nonatomic, assign, readonly) UIView * (^topLeft_)(CGRect);//左上距离父控件、宽高固定
 @property (nonatomic, assign, readonly) UIView * (^topRight_)(CGRect);//右上距离父控件、宽高固定

@@ -8,7 +8,7 @@
 
 #import "InterScaleViewController.h"
 #import "UIViewController+HHTransition.h"
-#import "UIView+HHConstraint.h"
+#import "UIView+HHLayout.h"
 
 @interface InterScaleViewController ()
 

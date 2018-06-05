@@ -9,7 +9,7 @@
 #import "CircleViewController.h"
 #import "VCTransitionDelegate.h"
 #import "UIViewController+HHTransition.h"
-#import "UIView+HHConstraint.h"
+#import "UIView+HHLayout.h"
 
 @interface CircleViewController ()
 
