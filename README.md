@@ -60,7 +60,7 @@
 
 ```objc
 target 'MyApp' do
-  pod 'HHTransition', '~> 1.0'
+  pod 'HHTransition', '~> 1.2.0'
 end
 ```
 
