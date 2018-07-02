@@ -13,6 +13,7 @@
 		505D45462089CCA00062B838 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 505D45442089CCA00062B838 /* 1.jpg */; };
 		505D45492089CEA50062B838 /* InterScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D45482089CEA50062B838 /* InterScaleViewController.m */; };
 		5069F2CA20C62290003D103F /* UIView+HHLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069F2C920C62290003D103F /* UIView+HHLayout.m */; };
+		509A79F720EA6B8000D89110 /* HHBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509A79F520EA6B8000D89110 /* HHBaseNavigationController.m */; };
 		50A2B9142087150B00C24583 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A2B9132087150B00C24583 /* AppDelegate.m */; };
 		50A2B9172087150B00C24583 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A2B9162087150B00C24583 /* ViewController.m */; };
 		50A2B91A2087150B00C24583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50A2B9182087150B00C24583 /* Main.storyboard */; };
@@ -53,6 +54,8 @@
 		5069F2C820C62290003D103F /* UIView+HHLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HHLayout.h"; sourceTree = "<group>"; };
 		5069F2C920C62290003D103F /* UIView+HHLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHLayout.m"; sourceTree = "<group>"; };
 		508E5B4D20C134EC0006687C /* AnimationStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationStyle.h; sourceTree = "<group>"; };
+		509A79F520EA6B8000D89110 /* HHBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHBaseNavigationController.m; sourceTree = "<group>"; };
+		509A79F620EA6B8000D89110 /* HHBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHBaseNavigationController.h; sourceTree = "<group>"; };
 		50A2B90F2087150B00C24583 /* HHTransitionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHTransitionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A2B9122087150B00C24583 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		50A2B9132087150B00C24583 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				50A2B9152087150B00C24583 /* ViewController.h */,
 				50A2B9162087150B00C24583 /* ViewController.m */,
 				50A2B9182087150B00C24583 /* Main.storyboard */,
+				509A79F620EA6B8000D89110 /* HHBaseNavigationController.h */,
+				509A79F520EA6B8000D89110 /* HHBaseNavigationController.m */,
 				50A2B9432087194800C24583 /* BackScaleViewController.h */,
 				50A2B9402087194800C24583 /* BackScaleViewController.m */,
 				50A2B93F2087194800C24583 /* BackScaleViewController.xib */,
@@ -294,6 +299,7 @@
 				50D6BA8B208F25810042F5E0 /* VCInteractionDelegate.m in Sources */,
 				50A2B9142087150B00C24583 /* AppDelegate.m in Sources */,
 				50D6BA85208F25810042F5E0 /* AnimationBackBegin.m in Sources */,
+				509A79F720EA6B8000D89110 /* HHBaseNavigationController.m in Sources */,
 				50D6BA91208F25810042F5E0 /* QuadrantRecognise.m in Sources */,
 				50D6BA8D208F25810042F5E0 /* AnimationErectBegin.m in Sources */,
 				50D6BA82208F25810042F5E0 /* AnimationBackEnd.m in Sources */,
