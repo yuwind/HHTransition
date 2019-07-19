@@ -13,6 +13,7 @@
 #import "UIViewController+HHTransition.h"
 #import "UIView+HHLayout.h"
 #import "InterScaleViewController.h"
+#import "TopBackViewController.h"
 
 NSString * presentStyle[] =
 {
@@ -34,6 +35,7 @@ NSString * pushStyle[] =
     @"AnimationStyleRippleEffect",
     @"AnimationStylePageCurl",
     @"AnimationStyleCameralIrisHollowOpen",
+    @"AnimationStyleTopBack",
 };
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -83,7 +85,7 @@ NSString * pushStyle[] =
             return 4;
             break;
         case 1:
-            return 10;
+            return 11;
             break;
         default:
             break;
@@ -101,8 +103,7 @@ NSString * pushStyle[] =
         [cell.contentView addSubview:button];
         [button addTarget:self action:@selector(circleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = indexPath.row+1234;
-    }else if (indexPath.section == 1)
-    {
+    }else if (indexPath.section == 1){
         if (indexPath.row == 0) {
             
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -209,6 +210,11 @@ NSString * pushStyle[] =
             break;
         case 14:
             [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleCameralIrisHollowOpen];
+            break;
+        case 15:
+        {
+            [self.navigationController hh_pushViewController:[TopBackViewController new] style:AnimationStyleTopBack];
+        }
             break;
         default:
             break;

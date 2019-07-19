@@ -44,8 +44,7 @@ static char * const animationStyleKey     = "animationStyleKey";
                             swizzledSelector,
                             method_getImplementation(originalMethod),
                             method_getTypeEncoding(originalMethod));
-    } else
-    {
+    } else {
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }
 }
@@ -178,6 +177,16 @@ static char * const interactionDelegateKey = "interactionDelegateKey";
         self.delegate = self.interactionDelegate;
     }
     [self pushViewController:viewController animated:YES];
+}
+
+- (void)hh_popBackViewController
+{
+    [self popViewControllerAnimated:YES];
+    if (self.interactionDelegate.delegate) {
+        self.delegate = self.interactionDelegate.delegate;
+    }else{
+        self.delegate = nil;
+    }
 }
 
 @end

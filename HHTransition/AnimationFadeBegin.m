@@ -7,6 +7,7 @@
 //
 
 #import "AnimationFadeBegin.h"
+#import "AnimationStyle.h"
 
 @interface AnimationFadeBegin()
 
@@ -44,10 +45,10 @@
     
     CATransform3D rotate = CATransform3DIdentity;
     rotate.m34 = -1.0 / 1000;
-    rotate = CATransform3DRotate(rotate, ([UIScreen mainScreen].bounds.size.height == 812.0f?5:3) * M_PI/180.0, 1, 0, 0);
+    rotate = CATransform3DRotate(rotate, (KISiPhoneX?4:3) * M_PI/180.0, 1, 0, 0);
     
     CATransform3D scale = CATransform3DIdentity;
-    scale = CATransform3DScale(scale, [UIScreen mainScreen].bounds.size.height == 812.0f?0.94:0.95, [UIScreen mainScreen].bounds.size.height == 812.0f?0.96:0.97, 1);
+    scale = CATransform3DScale(scale, KISiPhoneX?0.94:0.95, KISiPhoneX?0.96:0.97, 1);
     
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         

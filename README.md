@@ -1,5 +1,10 @@
 **主流转场动画**
 
+**2019/07/19 push增加卡片效果**  
+![121212.gif](https://upload-images.jianshu.io/upload_images/1801563-f6793ea51c9453e6.gif?imageMogr2/auto-orient/strip)
+
+---
+
 ![1.gif](https://upload-images.jianshu.io/upload_images/1801563-7c7f0def50ca8269.gif?imageMogr2/auto-orient/strip)![2.gif](https://upload-images.jianshu.io/upload_images/1801563-f5d8172f7c7828d7.gif?imageMogr2/auto-orient/strip)
 
 ![3.gif](https://upload-images.jianshu.io/upload_images/1801563-348ead15ab2669d3.gif?imageMogr2/auto-orient/strip)![4.gif](https://upload-images.jianshu.io/upload_images/1801563-6470fad4670f7667.gif?imageMogr2/auto-orient/strip)

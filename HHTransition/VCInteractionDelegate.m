@@ -17,6 +17,9 @@
 #import "AnimationBackEnd.h"
 #import "AnimationTransitionBegin.h"
 #import "AnimationTransitionEnd.h"
+#import "AnimationTopBackBegin.h"
+#import "AnimationTopBackEnd.h"
+#import "AnimationTopBackImageView.h"
 #import "UIViewController+HHTransition.h"
 
 @interface VCInteractionDelegate ()
@@ -74,6 +77,9 @@
             case AnimationStyleCameralIrisHollowOpen:
                 objc = [AnimationTransitionBegin animationStyle:toVC.animationStyle];
                 break;
+            case AnimationStyleTopBack:
+                objc = [AnimationTopBackBegin new];
+                break;
             default:
                 break;
         }
@@ -102,6 +108,9 @@
             case AnimationStyleCameralIrisHollowOpen:
                 objc = [AnimationTransitionEnd animationStyle:fromVC.animationStyle];
                 break;
+            case AnimationStyleTopBack:
+                objc = [AnimationTopBackEnd new];
+                break;
             default:
                 break;
         }
@@ -124,14 +133,27 @@
             [self updateInteractiveTransition:rate];
             break;
         case UIGestureRecognizerStateEnded:
+            self.completionCurve = UIViewAnimationCurveEaseInOut;
             _isInteraction = NO;
-            if (rate >= 0.4f)
+            if (rate >= 0.3f){
                 [self finishInteractiveTransition];
-            else
-                if (velocity >1000)
+                UIView *firstView = self.navigation.view.subviews[0];
+                if ([firstView isKindOfClass:AnimationTopBackImageView.class]) {
+                    [firstView removeFromSuperview];
+                }
+                self.navigation.delegate = self.delegate;
+            }else{
+                if (velocity >700){
                     [self finishInteractiveTransition];
-                else
+                    UIView *firstView = self.navigation.view.subviews[0];
+                    if ([firstView isKindOfClass:AnimationTopBackImageView.class]) {
+                        [firstView removeFromSuperview];
+                    }
+                    self.navigation.delegate = self.delegate;
+                }else{
                     [self cancelInteractiveTransition];
+                }
+            }
             break;
         default:
             _isInteraction = NO;

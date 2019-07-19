@@ -104,5 +104,10 @@
  */
 - (void)hh_pushBackViewController:(UIViewController * _Nonnull)viewController;
 
+/**
+ 匹配AnimationStyleTopBack转场效果
+ 
+ */
+- (void)hh_popBackViewController;
 
 @end

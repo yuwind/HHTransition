@@ -9,6 +9,13 @@
 #ifndef AnimationStyle_h
 #define AnimationStyle_h
 
+#define KISiPhoneX \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
+
 typedef enum : NSUInteger{
     AnimationStyleNone = 0,
     AnimationStyleCircle,//for present
@@ -23,6 +30,7 @@ typedef enum : NSUInteger{
     AnimationStyleRippleEffect,//for push
     AnimationStylePageCurl,//for push
     AnimationStyleCameralIrisHollowOpen,//for push
+    AnimationStyleTopBack,//for push
 } AnimationStyle;
 
 #endif /* AnimationStyle_h */

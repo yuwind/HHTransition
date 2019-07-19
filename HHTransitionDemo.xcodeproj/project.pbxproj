@@ -24,6 +24,10 @@
 		50A2B9452087194800C24583 /* BackScaleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A2B93F2087194800C24583 /* BackScaleViewController.xib */; };
 		50A2B9462087194800C24583 /* BackScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A2B9402087194800C24583 /* BackScaleViewController.m */; };
 		50A2B9472087194800C24583 /* CircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A2B9422087194800C24583 /* CircleViewController.m */; };
+		50B0500D22E16D0900EB009D /* AnimationTopBackImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B0500722E16D0800EB009D /* AnimationTopBackImageView.m */; };
+		50B0500E22E16D0900EB009D /* AnimationTopBackBegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B0500A22E16D0800EB009D /* AnimationTopBackBegin.m */; };
+		50B0500F22E16D0900EB009D /* AnimationTopBackEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B0500B22E16D0800EB009D /* AnimationTopBackEnd.m */; };
+		50B0501222E19AF900EB009D /* TopBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B0501122E19AF900EB009D /* TopBackViewController.m */; };
 		50D6BA81208F25810042F5E0 /* AnimationWaveEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA5F208F25800042F5E0 /* AnimationWaveEnd.m */; };
 		50D6BA82208F25810042F5E0 /* AnimationBackEnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA61208F25800042F5E0 /* AnimationBackEnd.m */; };
 		50D6BA83208F25810042F5E0 /* VCTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D6BA64208F25800042F5E0 /* VCTransitionDelegate.m */; };
@@ -72,6 +76,14 @@
 		50A2B9412087194800C24583 /* CircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleViewController.h; sourceTree = "<group>"; };
 		50A2B9422087194800C24583 /* CircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleViewController.m; sourceTree = "<group>"; };
 		50A2B9432087194800C24583 /* BackScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackScaleViewController.h; sourceTree = "<group>"; };
+		50B0500722E16D0800EB009D /* AnimationTopBackImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationTopBackImageView.m; sourceTree = "<group>"; };
+		50B0500822E16D0800EB009D /* AnimationTopBackEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationTopBackEnd.h; sourceTree = "<group>"; };
+		50B0500922E16D0800EB009D /* AnimationTopBackBegin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationTopBackBegin.h; sourceTree = "<group>"; };
+		50B0500A22E16D0800EB009D /* AnimationTopBackBegin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationTopBackBegin.m; sourceTree = "<group>"; };
+		50B0500B22E16D0800EB009D /* AnimationTopBackEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationTopBackEnd.m; sourceTree = "<group>"; };
+		50B0500C22E16D0900EB009D /* AnimationTopBackImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationTopBackImageView.h; sourceTree = "<group>"; };
+		50B0501022E19AF900EB009D /* TopBackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopBackViewController.h; sourceTree = "<group>"; };
+		50B0501122E19AF900EB009D /* TopBackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopBackViewController.m; sourceTree = "<group>"; };
 		50D6BA5F208F25800042F5E0 /* AnimationWaveEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationWaveEnd.m; sourceTree = "<group>"; };
 		50D6BA61208F25800042F5E0 /* AnimationBackEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationBackEnd.m; sourceTree = "<group>"; };
 		50D6BA62208F25800042F5E0 /* QuadrantRecognise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadrantRecognise.h; sourceTree = "<group>"; };
@@ -150,6 +162,8 @@
 				50A2B9412087194800C24583 /* CircleViewController.h */,
 				50A2B9422087194800C24583 /* CircleViewController.m */,
 				50A2B93E2087194800C24583 /* CircleViewController.xib */,
+				50B0501022E19AF900EB009D /* TopBackViewController.h */,
+				50B0501122E19AF900EB009D /* TopBackViewController.m */,
 				505D45472089CEA50062B838 /* InterScaleViewController.h */,
 				505D45482089CEA50062B838 /* InterScaleViewController.m */,
 				505D45442089CCA00062B838 /* 1.jpg */,
@@ -196,6 +210,12 @@
 				50D6BA66208F25800042F5E0 /* AnimationBackBegin.m */,
 				50D6BA71208F25800042F5E0 /* AnimationBackEnd.h */,
 				50D6BA61208F25800042F5E0 /* AnimationBackEnd.m */,
+				50B0500922E16D0800EB009D /* AnimationTopBackBegin.h */,
+				50B0500A22E16D0800EB009D /* AnimationTopBackBegin.m */,
+				50B0500822E16D0800EB009D /* AnimationTopBackEnd.h */,
+				50B0500B22E16D0800EB009D /* AnimationTopBackEnd.m */,
+				50B0500C22E16D0900EB009D /* AnimationTopBackImageView.h */,
+				50B0500722E16D0800EB009D /* AnimationTopBackImageView.m */,
 				50D6BA62208F25800042F5E0 /* QuadrantRecognise.h */,
 				50D6BA7B208F25800042F5E0 /* QuadrantRecognise.m */,
 				5021D86D20AD657A003103EB /* AnimationTransitionBegin.h */,
@@ -286,6 +306,7 @@
 				50A2B9462087194800C24583 /* BackScaleViewController.m in Sources */,
 				50D6BA8F208F25810042F5E0 /* AnimationErectEnd.m in Sources */,
 				50D6BA86208F25810042F5E0 /* AnimationTildEnd.m in Sources */,
+				50B0501222E19AF900EB009D /* TopBackViewController.m in Sources */,
 				50D6BA84208F25810042F5E0 /* AnimationTiltBegin.m in Sources */,
 				50D6BA83208F25810042F5E0 /* VCTransitionDelegate.m in Sources */,
 				50A2B9172087150B00C24583 /* ViewController.m in Sources */,
@@ -303,12 +324,15 @@
 				50D6BA91208F25810042F5E0 /* QuadrantRecognise.m in Sources */,
 				50D6BA8D208F25810042F5E0 /* AnimationErectBegin.m in Sources */,
 				50D6BA82208F25810042F5E0 /* AnimationBackEnd.m in Sources */,
+				50B0500F22E16D0900EB009D /* AnimationTopBackEnd.m in Sources */,
+				50B0500D22E16D0900EB009D /* AnimationTopBackImageView.m in Sources */,
 				5069F2CA20C62290003D103F /* UIView+HHLayout.m in Sources */,
 				50A2B9472087194800C24583 /* CircleViewController.m in Sources */,
 				50D6BA8A208F25810042F5E0 /* UIViewController+HHTransition.m in Sources */,
 				505D45492089CEA50062B838 /* InterScaleViewController.m in Sources */,
 				50D6BA89208F25810042F5E0 /* AnimationScaleBegin.m in Sources */,
 				5021D87220AD65AA003103EB /* AnimationTransitionEnd.m in Sources */,
+				50B0500E22E16D0900EB009D /* AnimationTopBackBegin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,13 +466,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3P263BEBSC;
+				DEVELOPMENT_TEAM = Q9D8889WQL;
 				INFOPLIST_FILE = HHTransitionDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yufeng.HHTransition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kdg.HHTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -457,13 +483,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3P263BEBSC;
+				DEVELOPMENT_TEAM = Q9D8889WQL;
 				INFOPLIST_FILE = HHTransitionDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yufeng.HHTransition;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kdg.HHTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
