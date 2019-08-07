@@ -10,7 +10,6 @@
 
 @interface VCTransitionDelegate : NSObject<UIViewControllerTransitioningDelegate>
 
-@property (nonatomic, assign) CGFloat height;
 @property (nonatomic, assign) CGPoint touchPoint;
 
 @end

@@ -17,12 +17,6 @@
 
 @implementation AnimationFadeEnd
 
-+ (instancetype)animationHeight:(CGFloat)height
-{
-    AnimationFadeEnd *fadeEnd = [[AnimationFadeEnd alloc] init];
-    fadeEnd.height = height;
-    return fadeEnd;
-}
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     return 0.4;
@@ -32,9 +26,6 @@
 {
     UIViewController * toVC =
     [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-        
-    UIViewController * fromVC =
-    [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
     CATransform3D rotate = CATransform3DIdentity;
     rotate.m34 = -1.0 / 1000.0;
@@ -57,13 +48,6 @@
             [transitionContext completeTransition:YES];
         }];
     }];
-    
-    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        
-        CGRect frame = fromVC.view.frame;
-        frame.origin.y = [UIScreen mainScreen].bounds.size.height;
-        fromVC.view.frame = frame;
-    } completion:nil];
 }
 
 

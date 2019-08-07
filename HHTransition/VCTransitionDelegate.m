@@ -24,7 +24,7 @@
     id<UIViewControllerAnimatedTransitioning> objc = nil;
     switch (presented.animationStyle) {
         case AnimationStyleBackScale:
-            objc = [AnimationFadeBegin animationHeight:_height];
+            objc = [AnimationFadeBegin new];
             break;
         case AnimationStyleCircle:
             objc = [AnimationWaveBegin animationOrigin:_touchPoint];
@@ -46,7 +46,7 @@
     id<UIViewControllerAnimatedTransitioning> objc = nil;
     switch (dismissed.animationStyle) {
         case AnimationStyleBackScale:
-            objc = [AnimationFadeEnd animationHeight:_height];
+            objc = [AnimationFadeEnd new];
             break;
         case AnimationStyleCircle:
             objc = [AnimationWaveEnd animationOrigin:_touchPoint];

@@ -16,10 +16,11 @@ static char * const animationStyleKey      = "animationStyleKey";
 
 @interface UIViewController ()
 
+@property (nonatomic, assign) AnimationStyle animationStyle;
 @property (nonatomic, strong) VCTransitionDelegate *transitionDelegate;
 @property (nonatomic, strong) VCInteractionDelegate *interactionDelegate;
-@end
 
+@end
 
 @implementation UIViewController (HHPresent)
 
@@ -77,26 +78,18 @@ static char * const animationStyleKey      = "animationStyleKey";
     return objc_getAssociatedObject(self, interactionDelegateKey);
 }
 
-- (void)hh_presentBackScaleVC:(UIViewController *)controller height:(CGFloat)height completion:(void (^)(void))completion
-{
-    [self hh_presentVC:controller type:AnimationStyleBackScale height:height point:CGPointZero completion:completion];
-}
 - (void)hh_presentCircleVC:(UIViewController *)controller point:(CGPoint)point completion:(void (^)(void))completion
 {
-    [self hh_presentVC:controller type:AnimationStyleCircle height:0 point:point completion:completion];
+    [self hh_presentVC:controller type:AnimationStyleCircle point:point completion:completion];
 }
-- (void)hh_presentErectVC:(UIViewController *)controller completion:(void (^)(void))completion
+
+- (void)hh_presentVC:(UIViewController *)controller type:(AnimationStyle)style completion:(void (^)(void))completion
 {
-    [self hh_presentVC:controller type:AnimationStyleErect height:0 point:CGPointZero completion:completion];
+    [self hh_presentVC:controller type:style point:CGPointZero completion:completion];
 }
-- (void)hh_presentTiltedVC:(UIViewController *)controller completion:(void (^)(void))completion
-{
-    [self hh_presentVC:controller type:AnimationStyleTilted height:0 point:CGPointZero completion:completion];
-}
-- (void)hh_presentVC:(UIViewController *)controller type:(AnimationStyle)style height:(CGFloat)height point:(CGPoint)point completion:(void (^)(void))completion
+- (void)hh_presentVC:(UIViewController *)controller type:(AnimationStyle)style point:(CGPoint)point completion:(void (^)(void))completion
 {
     self.transitionDelegate = [VCTransitionDelegate new];
-    self.transitionDelegate.height = height;
     self.transitionDelegate.touchPoint = point;
     controller.animationStyle = style;
     controller.modalPresentationStyle = UIModalPresentationCustom;
@@ -128,9 +121,11 @@ static char * const animationStyleKey      = "animationStyleKey";
     self.view.layer.anchorPoint = CGPointMake(0.5, 0.5);
     self.view.layer.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
 }
+
 - (UIView *)hh_transitionAnimationView{
     return nil;
 }
+
 @end
 
 

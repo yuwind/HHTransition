@@ -10,6 +10,4 @@
 
 @interface AnimationFadeBegin : NSObject<UIViewControllerAnimatedTransitioning>
 
-+ (instancetype)animationHeight:(CGFloat)height;
-
 @end

@@ -27,37 +27,68 @@
 >2、调用如下方法，基本只需要一句话，无侵入，API简单易用
 
 ```objc
-        case 0:
-            [self.navigationController hh_presentCircleVC:[CircleViewController new] point:_touchPoint completion:nil];
+        case 0:{
+            CircleViewController *circleVC = [CircleViewController new];
+            circleVC.isNeedShow = YES;
+            [self hh_presentCircleVC:circleVC point:_touchPoint completion:nil];
+        }
             break;
-        case 1:
-            [self.navigationController hh_presentBackScaleVC:[BackScaleViewController new] height:400 completion:nil];
+        case 1://内部只做背部控制器动画，前台动画自己控制
+            [self hh_presentVC:[BackScaleViewController new] type:AnimationStyleBackScale completion:nil];
             break;
-        case 2:
-            [self.navigationController hh_presentErectVC:[CircleViewController new] completion:nil];
+        case 2:{
+            CircleViewController *circleVC = [CircleViewController new];
+            circleVC.isNeedShow = YES;
+            [self hh_presentVC:circleVC type:AnimationStyleErect completion:nil];
+        }
             break;
         case 3:{//需要重写 hh_transitionAnimationView
-           InterScaleViewController *interScale = [InterScaleViewController new];
-            interScale.imageName = [UIImage imageNamed:@"1.jpg"];
-            [self.navigationController hh_pushScaleViewController:interScale];
+            CircleViewController *circleVC = [CircleViewController new];
+            circleVC.isNeedShow = YES;
+            [self hh_presentVC:circleVC type:AnimationStyleTilted completion:nil];
         }
             break;
         case 4:{//需要重写 hh_transitionAnimationView
             InterScaleViewController *interScale = [InterScaleViewController new];
-            interScale.imageName = [UIImage imageNamed:@"2.jpg"];
-            [self.navigationController hh_pushScaleViewController:interScale];
+            interScale.imageName = [UIImage imageNamed:@"1.jpg"];
+            [self.navigationController hh_pushViewController:interScale style:AnimationStyleScale];
         }
             break;
-        case 5:
-            [self.navigationController hh_pushTiltViewController:[CircleViewController new]];
+        case 5:{
+            InterScaleViewController *interScale = [InterScaleViewController new];
+            interScale.imageName = [UIImage imageNamed:@"2.jpg"];
+            [self.navigationController hh_pushViewController:interScale style:AnimationStyleScale];
+        }
             break;
         case 6:
-            [self.navigationController hh_pushErectViewController:[CircleViewController new]];
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleErect];
             break;
         case 7:
-            [self.navigationController hh_pushBackViewController:[CircleViewController new]];
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleTilted];
             break;
-        default:
+        case 8:
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleBack];
+            break;
+        case 9:
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleCube];
+            break;
+        case 10:
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleSuckEffect];
+            break;
+        case 11:
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleOglFlip];
+            break;
+        case 12:
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleRippleEffect];
+            break;
+        case 13:
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStylePageCurl];
+            break;
+        case 14:
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleCameralIrisHollowOpen];
+            break;
+        case 15:
+            [self.navigationController hh_pushViewController:[TopBackViewController new] style:AnimationStyleTopBack];
             break;
 ```
 
@@ -65,7 +96,7 @@
 
 ```objc
 target 'MyApp' do
-  pod 'HHTransition', '~> 1.2.0'
+  pod 'HHTransition', '~> 2.0.0'
 end
 ```
 

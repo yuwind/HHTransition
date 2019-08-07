@@ -9,20 +9,7 @@
 #import "AnimationFadeBegin.h"
 #import "AnimationStyle.h"
 
-@interface AnimationFadeBegin()
-
-@property (nonatomic, assign) CGFloat height;
-
-@end
-
 @implementation AnimationFadeBegin
-
-+ (instancetype)animationHeight:(CGFloat)height
-{
-    AnimationFadeBegin *fadeBegin = [[AnimationFadeBegin alloc] init];
-    fadeBegin.height = height;
-    return fadeBegin;
-}
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
@@ -33,7 +20,7 @@
 {
     UIViewController * toVC =
     [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    toVC.view.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, self.height?:[UIScreen mainScreen].bounds.size.height);
+    toVC.view.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     [[transitionContext containerView] addSubview:toVC.view];
     toVC.view.layer.zPosition = MAXFLOAT;
     
@@ -63,12 +50,6 @@
              [transitionContext completeTransition:YES];
          }];
     }];
-    
-    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        CGRect frame = toVC.view.frame;
-        frame.origin.y = [UIScreen mainScreen].bounds.size.height - self.height?:[UIScreen mainScreen].bounds.size.height;
-        toVC.view.frame = frame;
-    } completion:nil];
 }
 
 

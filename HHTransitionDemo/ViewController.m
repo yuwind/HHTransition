@@ -157,19 +157,19 @@ NSString * pushStyle[] =
             [self hh_presentCircleVC:circleVC point:_touchPoint completion:nil];
         }
             break;
-        case 1:
-            [self hh_presentBackScaleVC:[BackScaleViewController new] height:400 completion:nil];
+        case 1://内部只做背部控制器动画，前台动画自己控制
+            [self hh_presentVC:[BackScaleViewController new] type:AnimationStyleBackScale completion:nil];
             break;
         case 2:{
             CircleViewController *circleVC = [CircleViewController new];
             circleVC.isNeedShow = YES;
-            [self.navigationController hh_presentErectVC:circleVC completion:nil];
+            [self hh_presentVC:circleVC type:AnimationStyleErect completion:nil];
         }
             break;
         case 3:{
             CircleViewController *circleVC = [CircleViewController new];
             circleVC.isNeedShow = YES;
-            [self.navigationController hh_presentTiltedVC:circleVC completion:nil];
+            [self hh_presentVC:circleVC type:AnimationStyleTilted completion:nil];
         }
             break;
         case 4:{

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'HHTransition' 
-  s.version      = '1.2.0'
+  s.version      = '2.0.0'
   s.summary      = 'Transition'
   s.description  = 'Mainstream transition animation'
   s.homepage     = 'https://github.com/yuwind/HHTransition/wiki'

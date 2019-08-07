@@ -12,8 +12,7 @@
 
 @interface BackScaleViewController ()
 
-@property (nonatomic, strong) UIView *testView;
-@property (nonatomic, strong) UIView *topView;
+@property (nonatomic, strong) UIView *bottomView;
 
 @end
 
@@ -22,18 +21,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor clearColor];
+    
+    _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 400)];
+    _bottomView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:_bottomView];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonClick)];
+    [self.view addGestureRecognizer:tapGesture];
+}
 
-    UIButton *button = [UIButton new];
-    button.frame = CGRectMake(0, 0, 40, 40);
-    [button setTitle:@"关闭" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [self.view addSubview:button];
-    [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [UIView animateWithDuration:0.4 animations:^{
+        self.bottomView.y = [UIScreen mainScreen].bounds.size.height-self.bottomView.height;
+    }];
 }
 
 - (void)buttonClick
 {
+    [UIView animateWithDuration:0.4 animations:^{
+        self.bottomView.y = [UIScreen mainScreen].bounds.size.height;
+    }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
