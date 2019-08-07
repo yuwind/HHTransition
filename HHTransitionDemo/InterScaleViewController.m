@@ -33,7 +33,7 @@
     label.text = @"点击任意点关闭或侧滑查看效果";
     label.font = [UIFont systemFontOfSize:20];
     [self.view addSubview:label];
-    label.bott_.centX.equalTo(self.view).offset(20).install();
+    label.bott_.centX.equalTo(self.view).offset(20).on_();
 }
 
 - (void)viewDidAppear:(BOOL)animated

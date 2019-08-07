@@ -24,19 +24,19 @@
     
     UIView *closeView = [UIView new];
     [self.view addSubview:closeView];
-    closeView.top_.left_.righ_.equalTo(self.view).install();
+    closeView.top_.left_.righ_.equalTo(self.view).on_();
     if (KISiPhoneX) {
-        closeView.heit_.constant(78).install();
+        closeView.heit_.constant(78).on_();
     }else{
-        closeView.heit_.constant(64).install();
+        closeView.heit_.constant(64).on_();
     }
     [closeView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickTopView:)]];
     
     UIView *headerView = [UIView new];
     headerView.backgroundColor = tempColor;
     [self.view addSubview:headerView];
-    headerView.top_.left_.righ_.equalTo(closeView.bott_).install();
-    headerView.heit_.constant(45).install();
+    headerView.top_.left_.righ_.equalTo(closeView.bott_).on_();
+    headerView.heit_.constant(45).on_();
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 45) byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(9, 9)];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     maskLayer.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 45);
@@ -46,8 +46,8 @@
     UIView *contentView = [UIView new];
     [self.view addSubview:contentView];
     contentView.backgroundColor = tempColor;
-    contentView.top_.equalTo(headerView.bott_).install();
-    contentView.left_.righ_.bott_.equalTo(self.view).install();
+    contentView.top_.equalTo(headerView.bott_).on_();
+    contentView.left_.righ_.bott_.equalTo(self.view).on_();
 }
 
 

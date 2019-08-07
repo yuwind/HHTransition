@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef NS_ENUM(NSUInteger, ContentPriority) {
+    ContentPriorityDefault,
+    ContentPriorityHigh,
+    ContentPriorityRequired,
+};
 
 @interface UIView (HHLayout)
 
@@ -40,12 +45,19 @@
 @property (nonatomic, assign, readonly) UIView * centX;
 @property (nonatomic, assign, readonly) UIView * centY;
 @property (nonatomic, assign, readonly) UIView * size_;
+@property (nonatomic, assign, readonly) UIView * (^rate_wh)(CGFloat);
+@property (nonatomic, assign, readonly) UIView * (^rate_hw)(CGFloat);
+@property (nonatomic, assign, readonly) UIView * (^widPriority)(ContentPriority);
+@property (nonatomic, assign, readonly) UIView * (^higPriority)(ContentPriority);
 @property (nonatomic, assign, readonly) UIView * (^equalTo)(UIView *);
+@property (nonatomic, assign, readonly) UIView * (^greatThan)(UIView *);
+@property (nonatomic, assign, readonly) UIView * (^lessThan)(UIView *);
 @property (nonatomic, assign, readonly) UIView * (^constant)(CGFloat);
+#warning 必须以nil结尾 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 @property (nonatomic, assign, readonly) UIView * (^constList)(NSNumber *,...);//需要以nil结尾
 @property (nonatomic, assign, readonly) UIView * (^offset)(CGFloat);
-@property (nonatomic, assign, readonly) UIView * (^install)(void);
-
+@property (nonatomic, assign, readonly) UIView * (^on_)(void);
+@property (nonatomic, assign, readonly) UIView * (^removeAll)(void);
 
 /**
  快速添加约束
