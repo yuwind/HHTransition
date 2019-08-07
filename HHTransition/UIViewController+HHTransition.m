@@ -10,14 +10,14 @@
 #import "VCTransitionDelegate.h"
 #import <objc/runtime.h>
 
-
-static char * const transitionDelegateKey = "transitionDelegateKey";
-static char * const animationStyleKey     = "animationStyleKey";
+static char * const interactionDelegateKey = "interactionDelegateKey";
+static char * const transitionDelegateKey  = "transitionDelegateKey";
+static char * const animationStyleKey      = "animationStyleKey";
 
 @interface UIViewController ()
 
 @property (nonatomic, strong) VCTransitionDelegate *transitionDelegate;
-
+@property (nonatomic, strong) VCInteractionDelegate *interactionDelegate;
 @end
 
 
@@ -67,6 +67,16 @@ static char * const animationStyleKey     = "animationStyleKey";
     return objc_getAssociatedObject(self, transitionDelegateKey);
 }
 
+- (void)setInteractionDelegate:(VCInteractionDelegate *)interactionDelegate
+{
+    objc_setAssociatedObject(self, interactionDelegateKey, interactionDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (VCInteractionDelegate *)interactionDelegate
+{
+    return objc_getAssociatedObject(self, interactionDelegateKey);
+}
+
 - (void)hh_presentBackScaleVC:(UIViewController *)controller height:(CGFloat)height completion:(void (^)(void))completion
 {
     [self hh_presentVC:controller type:AnimationStyleBackScale height:height point:CGPointZero completion:completion];
@@ -75,17 +85,17 @@ static char * const animationStyleKey     = "animationStyleKey";
 {
     [self hh_presentVC:controller type:AnimationStyleCircle height:0 point:point completion:completion];
 }
-- (void)hh_presentErectVC:(UIViewController * _Nonnull)controller completion:(void (^)(void))completion
+- (void)hh_presentErectVC:(UIViewController *)controller completion:(void (^)(void))completion
 {
     [self hh_presentVC:controller type:AnimationStyleErect height:0 point:CGPointZero completion:completion];
 }
-- (void)hh_presentTiltedVC:(UIViewController * _Nonnull)controller completion:(void (^ __nullable)(void))completion
+- (void)hh_presentTiltedVC:(UIViewController *)controller completion:(void (^)(void))completion
 {
     [self hh_presentVC:controller type:AnimationStyleTilted height:0 point:CGPointZero completion:completion];
 }
 - (void)hh_presentVC:(UIViewController *)controller type:(AnimationStyle)style height:(CGFloat)height point:(CGPoint)point completion:(void (^)(void))completion
 {
-    self.transitionDelegate = [VCTransitionDelegate shareInstance];
+    self.transitionDelegate = [VCTransitionDelegate new];
     self.transitionDelegate.height = height;
     self.transitionDelegate.touchPoint = point;
     controller.animationStyle = style;
@@ -124,69 +134,20 @@ static char * const animationStyleKey     = "animationStyleKey";
 @end
 
 
-#import "VCInteractionDelegate.h"
-
-static char * const interactionDelegateKey = "interactionDelegateKey";
-
-@interface UINavigationController ()<UIGestureRecognizerDelegate>
-
-@property (nonatomic, strong) VCInteractionDelegate *interactionDelegate;
-
-@end
-
 @implementation UINavigationController (HHPush)
-
-- (void)setInteractionDelegate:(VCInteractionDelegate *)interactionDelegate
-{
-    objc_setAssociatedObject(self, interactionDelegateKey, interactionDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (VCInteractionDelegate *)interactionDelegate
-{
-    return objc_getAssociatedObject(self, interactionDelegateKey);
-}
-
-- (void)hh_pushScaleViewController:(UIViewController *)viewController
-{
-     [self hh_pushViewController:viewController style:AnimationStyleScale];
-}
-- (void)hh_pushTiltViewController:(UIViewController *)viewController
-{
-    [self hh_pushViewController:viewController style:AnimationStyleTilted];
-}
-- (void)hh_pushErectViewController:(UIViewController *)viewController
-{
-    [self hh_pushViewController:viewController style:AnimationStyleErect];
-}
-- (void)hh_pushBackViewController:(UIViewController *)viewController
-{
-    [self hh_pushViewController:viewController style:AnimationStyleBack];
-}
 
 - (void)hh_pushViewController:(UIViewController *)viewController style:(AnimationStyle)style
 {
-    self.interactionDelegate = [VCInteractionDelegate shareInstance];
-    self.interactionDelegate.navigation = self;
+    VCInteractionDelegate *interaction = [VCInteractionDelegate new];
+    interaction.navigation = self;
+    interaction.delegate = self.delegate;
+    viewController.interactionDelegate = interaction;
     viewController.animationStyle = style;
-    UIScreenEdgePanGestureRecognizer *edgePan = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self.interactionDelegate action:NSSelectorFromString(@"edgePanAction:")];
+    UIScreenEdgePanGestureRecognizer *edgePan = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:interaction action:NSSelectorFromString(@"edgePanAction:")];
     edgePan.edges = UIRectEdgeLeft;
     [viewController.view addGestureRecognizer:edgePan];
-    if (self.delegate != self.interactionDelegate) {
-        
-        self.interactionDelegate.delegate = self.delegate?:nil;
-        self.delegate = self.interactionDelegate;
-    }
+    self.delegate = interaction;
     [self pushViewController:viewController animated:YES];
-}
-
-- (void)hh_popBackViewController
-{
-    [self popViewControllerAnimated:YES];
-    if (self.interactionDelegate.delegate) {
-        self.delegate = self.interactionDelegate.delegate;
-    }else{
-        self.delegate = nil;
-    }
 }
 
 @end

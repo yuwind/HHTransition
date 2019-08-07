@@ -175,23 +175,23 @@ NSString * pushStyle[] =
         case 4:{
             InterScaleViewController *interScale = [InterScaleViewController new];
             interScale.imageName = [UIImage imageNamed:@"1.jpg"];
-            [self.navigationController hh_pushScaleViewController:interScale];
+            [self.navigationController hh_pushViewController:interScale style:AnimationStyleScale];
         }
             break;
         case 5:{
             InterScaleViewController *interScale = [InterScaleViewController new];
             interScale.imageName = [UIImage imageNamed:@"2.jpg"];
-            [self.navigationController hh_pushScaleViewController:interScale];
+            [self.navigationController hh_pushViewController:interScale style:AnimationStyleScale];
         }
             break;
         case 6:
-            [self.navigationController hh_pushErectViewController:[CircleViewController new]];
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleErect];
             break;
         case 7:
-            [self.navigationController hh_pushTiltViewController:[CircleViewController new]];
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleTilted];
             break;
         case 8:
-            [self.navigationController hh_pushBackViewController:[CircleViewController new]];
+            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleBack];
             break;
         case 9:
             [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleCube];
@@ -212,9 +212,7 @@ NSString * pushStyle[] =
             [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleCameralIrisHollowOpen];
             break;
         case 15:
-        {
             [self.navigationController hh_pushViewController:[TopBackViewController new] style:AnimationStyleTopBack];
-        }
             break;
         default:
             break;

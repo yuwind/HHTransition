@@ -34,10 +34,9 @@
 {
     if (self.presentingViewController) {
         [self dismissViewControllerAnimated:YES completion:nil];
-    }else
-    {
+    }else{
         [self.navigationController popViewControllerAnimated:YES];
-    } 
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

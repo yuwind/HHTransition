@@ -53,9 +53,11 @@
                                                            toViewController:(UIViewController *)toVC{
     
     id<UIViewControllerAnimatedTransitioning> objc = nil;
-    if(operation == UINavigationControllerOperationPush)
-    {
+    if(operation == UINavigationControllerOperationPush){
         _isPop = NO;
+        if (!toVC.interactionDelegate) {
+            return nil;
+        }
         switch (toVC.animationStyle) {
             case AnimationStyleScale:
                 objc = [AnimationScaleBegin new];
@@ -84,9 +86,12 @@
                 break;
         }
         return objc;
-    }else if (operation == UINavigationControllerOperationPop)
-    {
+    }else if (operation == UINavigationControllerOperationPop){
         _isPop = YES;
+        if (!fromVC.interactionDelegate) {
+            _isPop = NO;
+            return nil;
+        }
         switch (fromVC.animationStyle) {
             case AnimationStyleScale:
                 objc = [AnimationScaleEnd new];;
@@ -112,6 +117,7 @@
                 objc = [AnimationTopBackEnd new];
                 break;
             default:
+                _isPop = NO;
                 break;
         }
         return objc;
@@ -122,8 +128,7 @@
 - (void)edgePanAction:(UIScreenEdgePanGestureRecognizer *)gesture{
     CGFloat rate = [gesture translationInView:[[UIApplication sharedApplication] keyWindow]].x / [UIScreen mainScreen].bounds.size.width;
     CGFloat velocity = [gesture velocityInView:[[UIApplication sharedApplication] keyWindow]].x;
-    switch (gesture.state)
-    {
+    switch (gesture.state){
         case UIGestureRecognizerStateBegan:
             _isInteraction = YES;
             [self.navigation popViewControllerAnimated:YES];
@@ -190,6 +195,11 @@
     return UIInterfaceOrientationUnknown;
 }
 
-
+- (void)dealloc
+{
+    if (self.delegate) {
+        self.navigation.delegate = self.delegate;
+    }
+}
 
 @end

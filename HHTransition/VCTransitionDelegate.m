@@ -19,16 +19,6 @@
 
 @implementation VCTransitionDelegate
 
-+ (instancetype)shareInstance
-{
-    static VCTransitionDelegate *_instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _instance = [VCTransitionDelegate new];
-    });
-    return _instance;
-}
-
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
 {
     id<UIViewControllerAnimatedTransitioning> objc = nil;

@@ -12,7 +12,6 @@
 
 @interface VCInteractionDelegate : UIPercentDrivenInteractiveTransition<UINavigationControllerDelegate>
 
-+ (instancetype)shareInstance;
 @property (nonatomic, weak) UINavigationController *navigation;
 @property (nonatomic, weak) id <UINavigationControllerDelegate> delegate;
 

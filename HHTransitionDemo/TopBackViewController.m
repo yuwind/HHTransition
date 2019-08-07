@@ -57,7 +57,7 @@
  */
 - (void)didClickTopView:(UITapGestureRecognizer *)gesture
 {
-    [self.navigationController hh_popBackViewController];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
