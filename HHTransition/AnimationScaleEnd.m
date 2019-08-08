@@ -41,7 +41,7 @@
     CGPoint sourcePoint = [sourceView convertPoint:CGPointZero toView:nil];
     CGPoint destinationPoint = [destinationView convertPoint:CGPointZero toView:nil];
 
-    UIView *snapShot = [sourceView snapshotViewAfterScreenUpdates:NO];
+    UIView *snapShot = [sourceView snapshotViewAfterScreenUpdates:YES];
     snapShot.origin = sourcePoint;
     [[transitionContext containerView] addSubview:snapShot];
     
@@ -67,6 +67,7 @@
     } completion:^(BOOL finished) {
         [transitionContext containerView].backgroundColor = containerViewColor;
         fromView.hidden = NO;
+        sourceView.hidden = YES;
         destinationView.hidden = NO;
         [snapShot removeFromSuperview];
         toView.transform = CGAffineTransformIdentity;

@@ -41,7 +41,7 @@
     CGPoint sourcePoint = [sourceView convertPoint:CGPointZero toView:nil];
     CGPoint destinationPoint = [destinationView convertPoint:CGPointZero toView:nil];
     
-    UIView *snapShot = [sourceView snapshotViewAfterScreenUpdates:NO];
+    UIView *snapShot = [sourceView snapshotViewAfterScreenUpdates:YES];
     [[transitionContext containerView] addSubview:snapShot];
     snapShot.origin = sourcePoint;
     CGFloat heightScale = destinationView.height/sourceView.height;
