@@ -71,6 +71,7 @@
         [snapShot removeFromSuperview];
         toView.transform = CGAffineTransformIdentity;
         toView.frame = originFrame;
+        toView.alpha = 1;
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
 }
