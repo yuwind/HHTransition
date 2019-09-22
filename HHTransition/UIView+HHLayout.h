@@ -32,7 +32,6 @@ typedef NS_ENUM(NSUInteger, ContentPriority) {
 /**
  约束方式
  */
-
 @property (nonatomic, assign, readonly) UIView * top_;
 @property (nonatomic, assign, readonly) UIView * left_;
 @property (nonatomic, assign, readonly) UIView * bott_;

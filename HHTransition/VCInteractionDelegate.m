@@ -31,16 +31,6 @@
 
 @implementation VCInteractionDelegate
 
-+ (instancetype)shareInstance
-{
-    static VCInteractionDelegate *_instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _instance = [VCInteractionDelegate new];
-    });
-    return _instance;
-}
-
 - (nullable id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
                                    interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController
 {
