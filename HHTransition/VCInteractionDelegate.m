@@ -26,6 +26,7 @@
 
 @property (nonatomic, assign) BOOL isPop;
 @property (nonatomic, assign) BOOL isInteraction;
+@property (nonatomic, assign) BOOL isCATransition;
 
 @end
 
@@ -67,6 +68,7 @@
             case AnimationStyleRippleEffect:
             case AnimationStylePageCurl:
             case AnimationStyleCameralIrisHollowOpen:
+                self.isCATransition = YES;
                 objc = [AnimationTransitionBegin animationStyle:toVC.animationStyle];
                 break;
             case AnimationStyleTopBack:
@@ -130,6 +132,11 @@
         case UIGestureRecognizerStateEnded:
             self.completionCurve = UIViewAnimationCurveEaseInOut;
             _isInteraction = NO;
+            if (self.isCATransition) {
+                [self finishInteractiveTransition];
+                self.navigation.delegate = self.delegate;
+                return;
+            }
             if (rate >= 0.3f){
                 [self finishInteractiveTransition];
                 UIView *firstView = self.navigation.view.subviews[0];

@@ -96,7 +96,7 @@
 
 ```objc
 target 'MyApp' do
-  pod 'HHTransition', '~> 2.0.0'
+  pod 'HHTransition', '~> 2.0.1'
 end
 ```
 
