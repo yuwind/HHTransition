@@ -67,7 +67,6 @@
     } completion:^(BOOL finished) {
         [transitionContext containerView].backgroundColor = containerViewColor;
         fromView.hidden = NO;
-        sourceView.hidden = YES;
         destinationView.hidden = NO;
         [snapShot removeFromSuperview];
         toView.transform = CGAffineTransformIdentity;

@@ -1,3 +1,7 @@
+
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
 Pod::Spec.new do |s|
   s.name         = 'HHTransition' 
   s.version      = '2.0.1'
