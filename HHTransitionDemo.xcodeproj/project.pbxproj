@@ -27,6 +27,7 @@
 		FEC9518424825CDD000D094C /* HHPresentBackScaleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC9518324825CDD000D094C /* HHPresentBackScaleTransition.m */; };
 		FEC9518A24826AD7000D094C /* HHInteractionFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC9518924826AD7000D094C /* HHInteractionFlipTransition.m */; };
 		FEC9518D24826EA4000D094C /* HHInteractionTopBackTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC9518C24826EA4000D094C /* HHInteractionTopBackTransition.m */; };
+		FEC95193248294F4000D094C /* HHPresentSystemTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC95192248294F4000D094C /* HHPresentSystemTransition.m */; };
 		FEE2F04A244473D30040594F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE2F049244473D30040594F /* AppDelegate.m */; };
 		FEE2F050244473D30040594F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE2F04F244473D30040594F /* ViewController.m */; };
 		FEE2F053244473D30040594F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE2F051244473D30040594F /* Main.storyboard */; };
@@ -76,6 +77,8 @@
 		FEC9518924826AD7000D094C /* HHInteractionFlipTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHInteractionFlipTransition.m; sourceTree = "<group>"; };
 		FEC9518B24826EA4000D094C /* HHInteractionTopBackTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHInteractionTopBackTransition.h; sourceTree = "<group>"; };
 		FEC9518C24826EA4000D094C /* HHInteractionTopBackTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHInteractionTopBackTransition.m; sourceTree = "<group>"; };
+		FEC95191248294F3000D094C /* HHPresentSystemTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHPresentSystemTransition.h; sourceTree = "<group>"; };
+		FEC95192248294F4000D094C /* HHPresentSystemTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHPresentSystemTransition.m; sourceTree = "<group>"; };
 		FEE2F045244473D30040594F /* HHTransitionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHTransitionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE2F048244473D30040594F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FEE2F049244473D30040594F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -124,16 +127,18 @@
 				FEC9518024825A0F000D094C /* HHPresentErectedTransition.m */,
 				FEC9518224825CDD000D094C /* HHPresentBackScaleTransition.h */,
 				FEC9518324825CDD000D094C /* HHPresentBackScaleTransition.m */,
+				FEC95191248294F3000D094C /* HHPresentSystemTransition.h */,
+				FEC95192248294F4000D094C /* HHPresentSystemTransition.m */,
 				FE091AD3244F16BD00B6B12F /* HHInteractionDelegate.h */,
 				FE091AE1244F16BD00B6B12F /* HHInteractionDelegate.m */,
+				FEC9518824826AD7000D094C /* HHInteractionFlipTransition.h */,
+				FEC9518924826AD7000D094C /* HHInteractionFlipTransition.m */,
 				FE091ACE244F16BD00B6B12F /* HHInteractionTiltedTransition.h */,
 				FE091AD7244F16BD00B6B12F /* HHInteractionTiltedTransition.m */,
 				FE091ACF244F16BD00B6B12F /* HHInteractionDrawerTransition.h */,
 				FE091AD6244F16BD00B6B12F /* HHInteractionDrawerTransition.m */,
 				FE091AE0244F16BD00B6B12F /* HHInteractionMotionTransition.h */,
 				FE091AD0244F16BD00B6B12F /* HHInteractionMotionTransition.m */,
-				FEC9518824826AD7000D094C /* HHInteractionFlipTransition.h */,
-				FEC9518924826AD7000D094C /* HHInteractionFlipTransition.m */,
 				FEC9518B24826EA4000D094C /* HHInteractionTopBackTransition.h */,
 				FEC9518C24826EA4000D094C /* HHInteractionTopBackTransition.m */,
 			);
@@ -252,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEC9518124825A0F000D094C /* HHPresentErectedTransition.m in Sources */,
+				FEC95193248294F4000D094C /* HHPresentSystemTransition.m in Sources */,
 				FEC9518424825CDD000D094C /* HHPresentBackScaleTransition.m in Sources */,
 				FE091AE4244F16BD00B6B12F /* HHInteractionMotionTransition.m in Sources */,
 				FE091A85244BFBB900B6B12F /* PushViewController.m in Sources */,
@@ -412,7 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.0.0;
+				CURRENT_PROJECT_VERSION = 3.0.1;
 				DEVELOPMENT_TEAM = E868SZVJJK;
 				INFOPLIST_FILE = "$(SRCROOT)/HHTransitionDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -420,7 +426,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufeng.transition.HHTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -432,7 +438,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.0.0;
+				CURRENT_PROJECT_VERSION = 3.0.1;
 				DEVELOPMENT_TEAM = E868SZVJJK;
 				INFOPLIST_FILE = "$(SRCROOT)/HHTransitionDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -440,7 +446,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yufeng.transition.HHTransition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

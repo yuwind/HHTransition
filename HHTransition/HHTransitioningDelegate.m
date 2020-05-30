@@ -13,6 +13,7 @@
 #import "HHPresentTiltedTransition.h"
 #import "HHPresentErectedTransition.h"
 #import "HHPresentBackScaleTransition.h"
+#import "HHPresentSystemTransition.h"
 
 @implementation HHTransitioningDelegate
 
@@ -33,6 +34,11 @@
             return [HHPresentErectedTransition transitionWithIsBegining:YES];
         case HHPresentStyleBackScale:
             return [HHPresentBackScaleTransition transitionWithIsBegining:YES];
+        case HHPresentStyleCube:
+        case HHPresentStyleFade:
+        case HHPresentStyleMoveIn:
+        case HHPresentStylePageCurl:
+            return [HHPresentSystemTransition systemTransitionWithStyle:presented.presentStyle isBegining:YES];
         default:
             return nil;
     }
@@ -55,6 +61,11 @@
             return [HHPresentErectedTransition transitionWithIsBegining:NO];
         case HHPresentStyleBackScale:
             return [HHPresentBackScaleTransition transitionWithIsBegining:NO];
+        case HHPresentStyleCube:
+        case HHPresentStyleFade:
+        case HHPresentStyleMoveIn:
+        case HHPresentStylePageCurl:
+            return [HHPresentSystemTransition systemTransitionWithStyle:dismissed.presentStyle isBegining:NO];
         default:
             return nil;
     }

@@ -70,12 +70,20 @@
 
 ![7.gif](https://upload-images.jianshu.io/upload_images/1801563-b8d20580229e1769.gif?imageMogr2/auto-orient/strip)
 
+**2018-05-17增加CATransition动画**
+![transitionCube.gif](https://upload-images.jianshu.io/upload_images/1801563-061c95cfd7d776d1.gif?imageMogr2/auto-orient/strip)![transitionCurl.gif](https://upload-images.jianshu.io/upload_images/1801563-81247a4213d193ca.gif?imageMogr2/auto-orient/strip)
 
+![transitionOgl.gif](https://upload-images.jianshu.io/upload_images/1801563-5730903fa2d97c10.gif?imageMogr2/auto-orient/strip)
+
+<!--![transitionRipple.gif](https://upload-images.jianshu.io/upload_images/1801563-e077c0e8ff06b09d.gif?imageMogr2/auto-orient/strip)-->
+
+<!--![transitionSuck.gif](https://upload-images.jianshu.io/upload_images/1801563-7f659c63c9731968.gif?imageMogr2/auto-orient/strip)
+-->
 **支持cocoapod**
 
 ```objc
 target 'MyApp' do
-  pod 'HHTransition', '~> 3.0.0'
+  pod 'HHTransition', '~> 3.0.1'
 end
 ```
 

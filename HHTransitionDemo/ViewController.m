@@ -133,6 +133,10 @@
              @"HHPresentStyleTilted",
              @"HHPresentStyleErected",
              @"HHPresentStyleBackScale",
+             @"HHPresentStyleCube",
+             @"HHPresentStyleFade",
+             @"HHPresentStyleMoveIn",
+             @"HHPresentStylePageCurl",
     ];
 }
 

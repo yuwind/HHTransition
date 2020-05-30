@@ -48,8 +48,14 @@
             self.coverImageView.center = CGPointMake(self.view.hh_width / 2, self.view.hh_height / 2);
             break;
         case HHPresentStyleBackScale:
-        self.coverImageView.hh_origin = CGPointMake(0, self.view.hh_height - self.view.hh_width);
+            self.coverImageView.hh_origin = CGPointMake(0, self.view.hh_height - self.view.hh_width);
             break;
+        case HHPresentStyleCube:
+        case HHPresentStyleFade:
+        case HHPresentStyleMoveIn:
+        case HHPresentStylePageCurl:
+            self.view.backgroundColor = [UIColor redColor];
+            self.coverImageView.center = CGPointMake(self.view.hh_width / 2, self.view.hh_height / 2);
         default:
             break;
     }

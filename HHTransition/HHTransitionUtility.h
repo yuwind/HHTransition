@@ -28,6 +28,10 @@ typedef NS_ENUM(NSUInteger, HHPresentStyle) {
     HHPresentStyleTilted,
     HHPresentStyleErected,
     HHPresentStyleBackScale,
+    HHPresentStyleCube,
+    HHPresentStyleFade,
+    HHPresentStyleMoveIn,
+    HHPresentStylePageCurl,
 };
 
 typedef NS_ENUM(NSUInteger, HHPushStyle) {
