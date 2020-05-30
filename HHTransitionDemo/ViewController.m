@@ -1,227 +1,151 @@
 //
 //  ViewController.m
-//  EasyTransition
+//  HHTransition
 //
-//  Created by 豫风 on 2016/12/28.
-//  Copyright © 2016年 豫风. All rights reserved.
+//  Created by 豫风 on 2020/4/13.
+//  Copyright © 2020 豫风. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "UIViewController+HHTransition.h"
-#import "BackScaleViewController.h"
-#import "CircleViewController.h"
-#import "UIViewController+HHTransition.h"
-#import "UIView+HHLayout.h"
-#import "InterScaleViewController.h"
-#import "TopBackViewController.h"
+#import "HHTransition.h"
+#import "PresentViewController.h"
+#import "PushViewController.h"
 
-NSString * presentStyle[] =
-{
-    @"AnimationStyleCircle",
-    @"AnimationStyleBackScale",
-    @"AnimationStyleErect",
-    @"AnimationStyleTilted",
-};
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource,HHPresentCircleProtocol,HHInteractionMotionProtocol>
 
-NSString * pushStyle[] =
-{
-    @"AnimationStyleScale",
-    @"AnimationStyleErect",
-    @"AnimationStyleTilted",
-    @"AnimationStyleBack",
-    @"AnimationStyleCube",
-    @"AnimationStyleSuckEffect",
-    @"AnimationStyleOglFlip",
-    @"AnimationStyleRippleEffect",
-    @"AnimationStylePageCurl",
-    @"AnimationStyleCameralIrisHollowOpen",
-    @"AnimationStyleTopBack",
-};
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, copy) NSArray *presentStyleArray;
+@property (nonatomic, copy) NSArray *pushStyleArray;
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, assign) CGPoint touchPoint;
-@property (nonatomic, strong) UIButton *button;
+@property (nonatomic, strong) UIView *motionView;
 
 @end
 
 @implementation ViewController
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    if (indexPath.section) {
+        [self.navigationController hh_pushViewController:[PushViewController instanceViewControllerWithStyle:indexPath.row + 1] style:indexPath.row + 1];
+        return;
+    }
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    self.touchPoint = cell.center;
+    [self hh_presentViewController:[PresentViewController instanceViewControllerWithStyle:indexPath.row + 1] presentStyle:indexPath.row + 1 completion:nil];
+}
+
+- (void)motionButtonClick:(UIButton *)sender {
+    self.motionView = sender;
+    PushViewController *vc = [PushViewController instanceViewControllerWithStyle:HHPushStyleMotion];
+    vc.image =  sender.imageView.image;
+    [self.navigationController hh_pushViewController:vc style:HHPushStyleMotion];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0.1)];
-     _touchPoint = CGPointMake([UIScreen mainScreen].bounds.size.width/2, 80);
-
+    self.view.backgroundColor = UIColor.whiteColor;
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.hh_width, self.view.hh_height) style:UITableViewStyleGrouped];
+    [self.view addSubview:self.tableView];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, mISiPhoneX ? 44 : 20)];
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }else{
+    } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    switch (section) {
-        case 0:
-            return @"Present";
-            break;
-        case 1:
-            return @"Push";
-            break;
-        default:
-            break;
-    }
-    return nil;
-}
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    switch (section) {
-        case 0:
-            return 4;
-            break;
-        case 1:
-            return 11;
-            break;
-        default:
-            break;
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section) {
+        return self.pushStyleArray.count;
     }
-    return 0;
+    return self.presentStyleArray.count;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     if (indexPath.section == 0) {
-        
-        cell.textLabel.text = presentStyle[indexPath.row];
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60);
-        [cell.contentView addSubview:button];
-        [button addTarget:self action:@selector(circleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        button.tag = indexPath.row+1234;
-    }else if (indexPath.section == 1){
-        if (indexPath.row == 0) {
-            
+        cell.textLabel.text = self.presentStyleArray[indexPath.row];
+    } else if (indexPath.section == 1){
+        if (indexPath.row == 6) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            [button setImage:[UIImage imageNamed:@"1.jpg"] forState:UIControlStateNormal];
+            [button setImage:[UIImage imageNamed:@"landscape.jpg"] forState:UIControlStateNormal];
             button.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width/2, 200);
             [cell.contentView addSubview:button];
-            [button addTarget:self action:@selector(circleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-            button.tag = indexPath.row+4+1234;
+            [button addTarget:self action:@selector(motionButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             
             UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-            [button2 setImage:[UIImage imageNamed:@"2.jpg"] forState:UIControlStateNormal];
+            [button2 setImage:[UIImage imageNamed:@"landscape2.jpg"] forState:UIControlStateNormal];
             button2.frame = CGRectMake([UIScreen mainScreen].bounds.size.width/2, 0, [UIScreen mainScreen].bounds.size.width/2, 200);
             [cell.contentView addSubview:button2];
-            [button2 addTarget:self action:@selector(circleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-            button2.tag = indexPath.row+5+1234;
-        }else{
-            
-            cell.textLabel.text =pushStyle[indexPath.row];
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            button.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60);
-            [cell.contentView addSubview:button];
-            [button addTarget:self action:@selector(circleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-            button.tag = indexPath.row+5+1234;
+            [button2 addTarget:self action:@selector(motionButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+            UILabel *label = [UILabel new];
+            [cell.contentView addSubview:label];
+            label.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 200);
+            label.textAlignment = NSTextAlignmentCenter;
+            label.text = self.pushStyleArray[indexPath.row];
+        } else {
+            cell.textLabel.text = self.pushStyleArray[indexPath.row];
         }
     }
     return cell;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return section ? @"Push" : @"Present";
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 30.0f;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0.01f;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 0 && indexPath.section == 1) {
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && indexPath.row == 6) {
         return 200.0f;
     }
     return 60.0f;
 }
 
-- (void)circleButtonClick:(UIButton *)sender
-{
-    self.button = sender;
-    switch (sender.tag-1234) {
-        case 0:{
-            CircleViewController *circleVC = [CircleViewController new];
-            circleVC.isNeedShow = YES;
-            [self hh_presentCircleVC:circleVC point:_touchPoint completion:nil];
-        }
-            break;
-        case 1://内部只做背部控制器动画，前台动画自己控制
-            [self hh_presentVC:[BackScaleViewController new] type:AnimationStyleBackScale completion:nil];
-            break;
-        case 2:{
-            CircleViewController *circleVC = [CircleViewController new];
-            circleVC.isNeedShow = YES;
-            [self hh_presentVC:circleVC type:AnimationStyleErect completion:nil];
-        }
-            break;
-        case 3:{
-            CircleViewController *circleVC = [CircleViewController new];
-            circleVC.isNeedShow = YES;
-            [self hh_presentVC:circleVC type:AnimationStyleTilted completion:nil];
-        }
-            break;
-        case 4:{
-            InterScaleViewController *interScale = [InterScaleViewController new];
-            interScale.imageName = [UIImage imageNamed:@"1.jpg"];
-            [self.navigationController hh_pushViewController:interScale style:AnimationStyleScale];
-        }
-            break;
-        case 5:{
-            InterScaleViewController *interScale = [InterScaleViewController new];
-            interScale.imageName = [UIImage imageNamed:@"2.jpg"];
-            [self.navigationController hh_pushViewController:interScale style:AnimationStyleScale];
-        }
-            break;
-        case 6:
-            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleErect];
-            break;
-        case 7:
-            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleTilted];
-            break;
-        case 8:
-            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleBack];
-            break;
-        case 9:
-            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleCube];
-            break;
-        case 10:
-            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleSuckEffect];
-            break;
-        case 11:
-            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleOglFlip];
-            break;
-        case 12:
-            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleRippleEffect];
-            break;
-        case 13:
-            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStylePageCurl];
-            break;
-        case 14:
-            [self.navigationController hh_pushViewController:[CircleViewController new] style:AnimationStyleCameralIrisHollowOpen];
-            break;
-        case 15:
-            [self.navigationController hh_pushViewController:[TopBackViewController new] style:AnimationStyleTopBack];
-            break;
-        default:
-            break;
-    }
+- (CGPoint)hh_touchPointForCircleTransition {
+    return self.touchPoint;
 }
 
-- (UIView *)hh_transitionAnimationView//need to override
-{
-    return self.button;
+- (UIView *)hh_animationViewForMotionTransition {
+    return self.motionView;
+}
+
+- (NSArray *)presentStyleArray {
+    return @[@"HHPresentStyleSlipFromTop",
+             @"HHPresentStyleSlipFromBottom",
+             @"HHPresentStyleSlipFromLeft",
+             @"HHPresentStyleSlipFromRight",
+             @"HHPresentStyleCircle",
+             @"HHPresentStyleTilted",
+             @"HHPresentStyleErected",
+             @"HHPresentStyleBackScale",
+    ];
+}
+
+- (NSArray *)pushStyleArray {
+    return @[@"HHPushStyleSlipFromTop",
+             @"HHPushStyleSlipFromBottom",
+             @"HHPushStyleSlipFromLeft",
+             @"HHPushStyleSlipFromRight",
+             @"HHPushStyleTilted",
+             @"HHPushStyleDrawer",
+             @"HHPushStyleMotion",
+             @"HHPushStyleTopBack",
+    ];
 }
 
 @end

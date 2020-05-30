@@ -1,14 +1,15 @@
 //
 //  ViewController.h
-//  EasyTransition
+//  HHTransition
 //
-//  Created by 豫风 on 2016/12/28.
-//  Copyright © 2016年 豫风. All rights reserved.
+//  Created by 豫风 on 2020/4/13.
+//  Copyright © 2020 豫风. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+
 
 @end
 
