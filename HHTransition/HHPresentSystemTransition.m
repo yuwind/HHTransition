@@ -7,7 +7,6 @@
 //
 
 #import "HHPresentSystemTransition.h"
-#import "AppDelegate.h"
 
 #define mSystemTransitionKey @"mSystemTransitionKey"
 
