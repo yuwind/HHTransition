@@ -83,7 +83,7 @@
 
 ```objc
 target 'MyApp' do
-  pod 'HHTransition', '~> 3.0.1'
+  pod 'HHTransition', '~> 3.0.2'
 end
 ```
 
