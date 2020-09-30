@@ -77,7 +77,7 @@ typedef NS_ENUM(NSUInteger, HHTransitionQuadrant) {
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    flag ? [self.transitionContext completeTransition:YES] : nil;
+    [self.transitionContext completeTransition:YES];
     [self.shapeLayer removeAllAnimations];
 }
 
