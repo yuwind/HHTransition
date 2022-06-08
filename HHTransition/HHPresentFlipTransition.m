@@ -7,14 +7,37 @@
 //
 
 #import "HHPresentFlipTransition.h"
+#import <objc/runtime.h>
+
+@interface UIViewController (translucentView)
+
+@property (nonatomic, strong) UIView *translucentView_;
+
+@end
+
+@implementation UIViewController (translucentView)
+
+- (UIView *)translucentView_ {
+    UIView *translucentView_ = objc_getAssociatedObject(self, @selector(translucentView_));
+    if (!translucentView_) {
+        translucentView_ = [[UIView alloc] init];
+        translucentView_.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8f];
+        self.translucentView_ = translucentView_;
+    }
+    return translucentView_;
+}
+
+- (void)setTranslucentView_:(UIView *)translucentView_ {
+    objc_setAssociatedObject(self, @selector(translucentView_), translucentView_, OBJC_ASSOCIATION_RETAIN);
+}
+
+@end
 
 @interface HHPresentFlipTransition ()
 
 @property (nonatomic, assign) HHPresentStyle style;
 
 @end
-
-static UIView *translucentView_ = nil;
 
 @implementation HHPresentFlipTransition
 
@@ -27,17 +50,19 @@ static UIView *translucentView_ = nil;
 }
 
 - (void)beginTransitionWithTransitionContext:(id<UIViewControllerContextTransitioning>)transitionContext {
+    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIView *translucentView = toVC.translucentView_;
     
     UIView *containerView = [transitionContext containerView];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     
     toView.frame = containerView.bounds;
-    self.translucentView.frame = containerView.bounds;
-    [containerView addSubview:self.translucentView];
+    translucentView.frame = containerView.bounds;
+    [containerView addSubview:translucentView];
     [containerView addSubview:toView];
     
     [self setupBeginInfoWithToView:toView];
-    self.translucentView.alpha = 0;
+    translucentView.alpha = 0;
     CGFloat duration = [self transitionDuration:transitionContext];
     
     CGFloat damping = 1;
@@ -45,7 +70,7 @@ static UIView *translucentView_ = nil;
         damping = 0.65;
     }
     [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:damping initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.translucentView.alpha = 1;
+        translucentView.alpha = 1;
         [self setupSuspendInfoWithToView:toView];
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];
@@ -53,6 +78,8 @@ static UIView *translucentView_ = nil;
 }
 
 - (void)endTransitionWithTransitionContext:(id<UIViewControllerContextTransitioning>)transitionContext {
+    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIView *translucentView = fromVC.translucentView_;
     
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     CGFloat duration = [self transitionDuration:transitionContext];
@@ -62,12 +89,11 @@ static UIView *translucentView_ = nil;
         damping = 0.65;
     }
     [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:damping initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.translucentView.alpha = 0;
+        translucentView.alpha = 0;
         [self setupEndInfoWithFromView:fromView];
     } completion:^(BOOL finished) {
-        [self.translucentView removeFromSuperview];
         [transitionContext completeTransition:YES];
-        translucentView_ = nil;
+        [translucentView removeFromSuperview];
     }];
 }
 
@@ -126,14 +152,6 @@ static UIView *translucentView_ = nil;
         default:
             break;
     }
-}
-
-- (UIView *)translucentView {
-    if (!translucentView_) {
-        translucentView_ = [[UIView alloc] init];
-        translucentView_.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8f];
-    }
-    return translucentView_;
 }
 
 @end
