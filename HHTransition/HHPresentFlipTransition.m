@@ -8,6 +8,7 @@
 
 #import "HHPresentFlipTransition.h"
 #import <objc/runtime.h>
+#import "UIViewController+HHTransitionProperty.h"
 
 @interface UIViewController (translucentView)
 
@@ -20,8 +21,9 @@
 - (UIView *)translucentView_ {
     UIView *translucentView_ = objc_getAssociatedObject(self, @selector(translucentView_));
     if (!translucentView_) {
+        CGFloat alpha = self.translucentViewAlpha > 0 ? self.translucentViewAlpha : 0.8;
         translucentView_ = [[UIView alloc] init];
-        translucentView_.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8f];
+        translucentView_.backgroundColor = [UIColor colorWithWhite:0 alpha:alpha];
         self.translucentView_ = translucentView_;
     }
     return translucentView_;

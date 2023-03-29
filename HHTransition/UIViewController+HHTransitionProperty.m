@@ -11,6 +11,7 @@
 
 static char * const kTransitionDelegateKey  = "kTransitionDelegateKey";
 static char * const kTransitionPresentedKey = "kTransitionPresentedKey";
+static char * const kTransitionPresentedAlphaKey = "kTransitionPresentedAlphaKey";
 static char * const kInteractionDelegateKey = "kInteractionDelegateKey";
 static char * const kTransitionPushStyleKey = "kTransitionPushStyleKey";
 
@@ -46,6 +47,14 @@ static char * const kTransitionPushStyleKey = "kTransitionPushStyleKey";
 
 - (HHPushStyle)pushStyle {
     return [objc_getAssociatedObject(self, kTransitionPushStyleKey) integerValue];
+}
+
+- (void)setTranslucentViewAlpha:(CGFloat)translucentViewAlpha {
+    objc_setAssociatedObject(self, kTransitionPresentedAlphaKey, @(translucentViewAlpha), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGFloat)translucentViewAlpha {
+    return [objc_getAssociatedObject(self, kTransitionPresentedAlphaKey) floatValue];
 }
 
 @end

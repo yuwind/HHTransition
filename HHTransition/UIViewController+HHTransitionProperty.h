@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign, readwrite) HHPresentStyle presentStyle;
 @property (nonatomic, assign, readwrite) HHPushStyle pushStyle;
+@property (nonatomic, assign, readwrite) CGFloat translucentViewAlpha;
 @property (nonatomic, strong, readwrite) HHTransitioningDelegate *transitionDelegate;
 @property (nonatomic, strong, readwrite) HHInteractionDelegate *interactionDelegate;
 
