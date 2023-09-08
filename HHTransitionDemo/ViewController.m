@@ -137,6 +137,7 @@
              @"HHPresentStyleFade",
              @"HHPresentStyleMoveIn",
              @"HHPresentStylePageCurl",
+             @"HHPresentStyleTopBack",
     ];
 }
 

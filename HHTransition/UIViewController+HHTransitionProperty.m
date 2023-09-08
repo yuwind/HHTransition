@@ -57,4 +57,19 @@ static char * const kTransitionPushStyleKey = "kTransitionPushStyleKey";
     return [objc_getAssociatedObject(self, kTransitionPresentedAlphaKey) floatValue];
 }
 
+- (UIView *)translucentView {
+    UIView *translucentView = objc_getAssociatedObject(self, @selector(translucentView));
+    if (!translucentView) {
+        CGFloat alpha = self.translucentViewAlpha > 0 ? self.translucentViewAlpha : 0.8;
+        translucentView = [[UIView alloc] init];
+        translucentView.backgroundColor = [UIColor colorWithWhite:0 alpha:alpha];
+        self.translucentView = translucentView;
+    }
+    return translucentView;
+}
+
+- (void)setTranslucentView:(UIView *)translucentView {
+    objc_setAssociatedObject(self, @selector(translucentView), translucentView, OBJC_ASSOCIATION_RETAIN);
+}
+
 @end

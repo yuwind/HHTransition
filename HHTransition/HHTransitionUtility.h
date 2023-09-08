@@ -32,6 +32,7 @@ typedef NS_ENUM(NSUInteger, HHPresentStyle) {
     HHPresentStyleFade,
     HHPresentStyleMoveIn,
     HHPresentStylePageCurl,
+    HHPresentStyleTopBack,
 };
 
 typedef NS_ENUM(NSUInteger, HHPushStyle) {

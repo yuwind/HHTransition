@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readwrite) CGFloat translucentViewAlpha;
 @property (nonatomic, strong, readwrite) HHTransitioningDelegate *transitionDelegate;
 @property (nonatomic, strong, readwrite) HHInteractionDelegate *interactionDelegate;
+@property (nonatomic, strong) UIView *translucentView;
 
 @end
 
