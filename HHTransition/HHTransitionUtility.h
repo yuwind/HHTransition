@@ -33,6 +33,7 @@ typedef NS_ENUM(NSUInteger, HHPresentStyle) {
     HHPresentStyleMoveIn,
     HHPresentStylePageCurl,
     HHPresentStyleTopBack,
+    HHPresentStyleMotion,//viewController must conforms HHInteractionMotionProtocol
 };
 
 typedef NS_ENUM(NSUInteger, HHPushStyle) {
@@ -55,11 +56,21 @@ typedef NS_ENUM(NSUInteger, HHPushStyle) {
 
 @end
 
+@protocol HHViewMotionAnimation <NSObject>
+
+@optional;
+- (void)showPresentAnimation;
+- (void)showDismissAnimation;
+
+@end
+
 #pragma mark - just for HHPushStyleMotion
 @protocol HHInteractionMotionProtocol <NSObject>
 
 @required;
 - (UIView *_Nonnull)hh_animationViewForMotionTransition;
+@optional
+- (UIView<HHViewMotionAnimation> *_Nonnull)hh_animationMediumViewForMotionTransition;
 
 @end
 

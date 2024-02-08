@@ -15,6 +15,7 @@
 #import "HHPresentBackScaleTransition.h"
 #import "HHPresentSystemTransition.h"
 #import "HHPresentTopBackTransition.h"
+#import "HHPresentMotionTransition.h"
 
 @implementation HHTransitioningDelegate
 
@@ -42,6 +43,8 @@
             return [HHPresentSystemTransition systemTransitionWithStyle:presented.presentStyle isBegining:YES];
         case HHPresentStyleTopBack:
             return [HHPresentTopBackTransition transitionWithIsBegining:YES];
+        case HHPresentStyleMotion:
+            return [HHPresentMotionTransition transitionWithIsBegining:YES];
         default:
             return nil;
     }
@@ -71,6 +74,8 @@
             return [HHPresentSystemTransition systemTransitionWithStyle:dismissed.presentStyle isBegining:NO];
         case HHPresentStyleTopBack:
             return [HHPresentTopBackTransition transitionWithIsBegining:NO];
+        case HHPresentStyleMotion:
+            return nil;[HHPresentMotionTransition transitionWithIsBegining:NO];
         default:
             return nil;
     }
