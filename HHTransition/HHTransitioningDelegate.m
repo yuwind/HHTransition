@@ -75,7 +75,7 @@
         case HHPresentStyleTopBack:
             return [HHPresentTopBackTransition transitionWithIsBegining:NO];
         case HHPresentStyleMotion:
-            return nil;[HHPresentMotionTransition transitionWithIsBegining:NO];
+            return [HHPresentMotionTransition transitionWithIsBegining:NO];
         default:
             return nil;
     }

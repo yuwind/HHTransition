@@ -115,7 +115,7 @@
         [mediumView showDismissAnimation];
     }
     
-    CGPoint destinationPoint = [destinationView convertPoint:CGPointZero toView:nil];
+    CGPoint destinationPoint = [destinationView convertPoint:CGPointMake(destinationView.hh_width/2, destinationView.hh_height/2) toView:nil];
     
     CGFloat heightScale = destinationView.hh_height / sourceView.hh_height;
     CGFloat widthScale = destinationView.hh_width / sourceView.hh_width;
@@ -126,7 +126,7 @@
     toView.userInteractionEnabled = false;
     [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         mediumView.transform = result;
-        mediumView.hh_origin = destinationPoint;
+        mediumView.center = destinationPoint;
     } completion:^(BOOL finished) {
         toView.userInteractionEnabled = true;
         destinationView.alpha = 1;
@@ -134,9 +134,13 @@
     }];
     
     toView.transform = CGAffineTransformMakeScale(0.92, 0.9);
-    [UIView animateWithDuration:0.5 animations:^{
+    destinationView.transform = CGAffineTransformMakeScale(1.2, 1.2);
+    [UIView animateWithDuration:0.6 animations:^{
         fromView.alpha = 0;
         toView.transform = CGAffineTransformIdentity;
+        mediumView.alpha = 0;
+        destinationView.alpha = 1;
+        destinationView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
