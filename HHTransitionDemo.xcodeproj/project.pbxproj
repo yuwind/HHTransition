@@ -29,6 +29,7 @@
 		FEC9518A24826AD7000D094C /* HHInteractionFlipTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC9518924826AD7000D094C /* HHInteractionFlipTransition.m */; };
 		FEC9518D24826EA4000D094C /* HHInteractionTopBackTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC9518C24826EA4000D094C /* HHInteractionTopBackTransition.m */; };
 		FEC95193248294F4000D094C /* HHPresentSystemTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC95192248294F4000D094C /* HHPresentSystemTransition.m */; };
+		FECBD3892BBA689200DAFDF0 /* HHPresentMotionTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FECBD3872BBA689200DAFDF0 /* HHPresentMotionTransition.m */; };
 		FEE2F04A244473D30040594F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE2F049244473D30040594F /* AppDelegate.m */; };
 		FEE2F050244473D30040594F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE2F04F244473D30040594F /* ViewController.m */; };
 		FEE2F053244473D30040594F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEE2F051244473D30040594F /* Main.storyboard */; };
@@ -82,6 +83,8 @@
 		FEC9518C24826EA4000D094C /* HHInteractionTopBackTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHInteractionTopBackTransition.m; sourceTree = "<group>"; };
 		FEC95191248294F3000D094C /* HHPresentSystemTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHPresentSystemTransition.h; sourceTree = "<group>"; };
 		FEC95192248294F4000D094C /* HHPresentSystemTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHPresentSystemTransition.m; sourceTree = "<group>"; };
+		FECBD3872BBA689200DAFDF0 /* HHPresentMotionTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHPresentMotionTransition.m; sourceTree = "<group>"; };
+		FECBD3882BBA689200DAFDF0 /* HHPresentMotionTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHPresentMotionTransition.h; sourceTree = "<group>"; };
 		FEE2F045244473D30040594F /* HHTransitionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHTransitionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE2F048244473D30040594F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FEE2F049244473D30040594F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				FEC95192248294F4000D094C /* HHPresentSystemTransition.m */,
 				FE9886812AAB02D600A209DA /* HHPresentTopBackTransition.h */,
 				FE9886822AAB02D600A209DA /* HHPresentTopBackTransition.m */,
+				FECBD3882BBA689200DAFDF0 /* HHPresentMotionTransition.h */,
+				FECBD3872BBA689200DAFDF0 /* HHPresentMotionTransition.m */,
 				FE091AD3244F16BD00B6B12F /* HHInteractionDelegate.h */,
 				FE091AE1244F16BD00B6B12F /* HHInteractionDelegate.m */,
 				FEC9518824826AD7000D094C /* HHInteractionFlipTransition.h */,
@@ -277,6 +282,7 @@
 				FE091AE5244F16BD00B6B12F /* HHPresentFlipTransition.m in Sources */,
 				FE091A82244BFBB100B6B12F /* PresentViewController.m in Sources */,
 				FE091AEC244F16BD00B6B12F /* UIViewController+HHTransitionProperty.m in Sources */,
+				FECBD3892BBA689200DAFDF0 /* HHPresentMotionTransition.m in Sources */,
 				FEC9518D24826EA4000D094C /* HHInteractionTopBackTransition.m in Sources */,
 				FE9886832AAB02D600A209DA /* HHPresentTopBackTransition.m in Sources */,
 				FEE2F04A244473D30040594F /* AppDelegate.m in Sources */,

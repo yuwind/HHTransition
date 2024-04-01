@@ -7,33 +7,7 @@
 //
 
 #import "HHPresentFlipTransition.h"
-#import <objc/runtime.h>
 #import "UIViewController+HHTransitionProperty.h"
-
-@interface UIViewController (translucentView)
-
-@property (nonatomic, strong) UIView *translucentView_;
-
-@end
-
-@implementation UIViewController (translucentView)
-
-- (UIView *)translucentView_ {
-    UIView *translucentView_ = objc_getAssociatedObject(self, @selector(translucentView_));
-    if (!translucentView_) {
-        CGFloat alpha = self.translucentViewAlpha > 0 ? self.translucentViewAlpha : 0.8;
-        translucentView_ = [[UIView alloc] init];
-        translucentView_.backgroundColor = [UIColor colorWithWhite:0 alpha:alpha];
-        self.translucentView_ = translucentView_;
-    }
-    return translucentView_;
-}
-
-- (void)setTranslucentView_:(UIView *)translucentView_ {
-    objc_setAssociatedObject(self, @selector(translucentView_), translucentView_, OBJC_ASSOCIATION_RETAIN);
-}
-
-@end
 
 @interface HHPresentFlipTransition ()
 
@@ -53,7 +27,7 @@
 
 - (void)beginTransitionWithTransitionContext:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIView *translucentView = toVC.translucentView_;
+    UIView *translucentView = toVC.translucentView;
     
     UIView *containerView = [transitionContext containerView];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
@@ -81,7 +55,7 @@
 
 - (void)endTransitionWithTransitionContext:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIView *translucentView = fromVC.translucentView_;
+    UIView *translucentView = fromVC.translucentView;
     
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     CGFloat duration = [self transitionDuration:transitionContext];
