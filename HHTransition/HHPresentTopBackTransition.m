@@ -15,17 +15,11 @@
     UIView *containerView = transitionContext.containerView;
 
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    if ([fromVC isKindOfClass:UITabBarController.class]) {
-        UITabBarController *tabBarVC = (UITabBarController *)fromVC;
-        fromVC = tabBarVC.selectedViewController;
-    }
-    if ([fromVC isKindOfClass:UINavigationController.class]) {
-        UINavigationController *navVC = (UINavigationController *)fromVC;
-        fromVC = navVC.topViewController;
+    if (![fromVC isKindOfClass:UITabBarController.class] && fromVC.tabBarController) {
+        fromVC = fromVC.tabBarController;
     }
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *translucentView = toVC.translucentView;
-    translucentView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
     translucentView.frame = containerView.bounds;
     [containerView addSubview:translucentView];
     
@@ -42,18 +36,18 @@
         fromView.layer.cornerRadius = 20;
         fromView.layer.masksToBounds = true;
         if (mISiPhoneX) {
-            fromView.transform = CGAffineTransformMakeScale(0.92, 0.9);
+            fromView.transform = CGAffineTransformMakeScale(0.94, 0.9);
         }else{
-            fromView.transform = CGAffineTransformMakeScale(0.92, 0.94);
+            fromView.transform = CGAffineTransformMakeScale(0.94, 0.94);
         }
     } completion:^(BOOL finished) {
         toView.hh_y = 0;
         fromView.layer.cornerRadius = 20;
         fromView.layer.masksToBounds = true;
         if (mISiPhoneX) {
-            fromView.transform = CGAffineTransformMakeScale(0.92, 0.9);
+            fromView.transform = CGAffineTransformMakeScale(0.94, 0.9);
         }else{
-            fromView.transform = CGAffineTransformMakeScale(0.92, 0.94);
+            fromView.transform = CGAffineTransformMakeScale(0.94, 0.94);
         }
         [transitionContext completeTransition:YES];
     }];
@@ -65,13 +59,8 @@
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    if ([toVC isKindOfClass:UITabBarController.class]) {
-        UITabBarController *tabBarVC = (UITabBarController *)toVC;
-        toVC = tabBarVC.selectedViewController;
-    }
-    if ([toVC isKindOfClass:UINavigationController.class]) {
-        UINavigationController *navVC = (UINavigationController *)toVC;
-        toVC = navVC.topViewController;
+    if (![toVC isKindOfClass:UITabBarController.class] && toVC.tabBarController) {
+        toVC = toVC.tabBarController;
     }
     UIView *toView = toVC.view;
         

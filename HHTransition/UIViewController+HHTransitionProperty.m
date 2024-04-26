@@ -60,7 +60,7 @@ static char * const kTransitionPushStyleKey = "kTransitionPushStyleKey";
 - (UIView *)translucentView {
     UIView *translucentView = objc_getAssociatedObject(self, @selector(translucentView));
     if (!translucentView) {
-        CGFloat alpha = self.translucentViewAlpha > 0 ? self.translucentViewAlpha : 0.8;
+        CGFloat alpha = self.translucentViewAlpha > 0 ? self.translucentViewAlpha : 0.7;
         translucentView = [[UIView alloc] init];
         translucentView.backgroundColor = [UIColor colorWithWhite:0 alpha:alpha];
         self.translucentView = translucentView;
