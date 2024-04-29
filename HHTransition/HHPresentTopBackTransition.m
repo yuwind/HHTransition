@@ -8,8 +8,13 @@
 
 #import "HHPresentTopBackTransition.h"
 #import "UIViewController+HHTransitionProperty.h"
+#import "UIView+HHAnimator.h"
 
 @implementation HHPresentTopBackTransition
+
+- (NSTimeInterval)transitionDuration:(nullable id<UIViewControllerContextTransitioning>)transitionContext {
+    return 0.6;
+}
 
 - (void)beginTransitionWithTransitionContext:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *containerView = transitionContext.containerView;
@@ -17,6 +22,8 @@
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     if (![fromVC isKindOfClass:UITabBarController.class] && fromVC.tabBarController) {
         fromVC = fromVC.tabBarController;
+    } else if (![fromVC isKindOfClass:UINavigationController.class] && fromVC.navigationController) {
+        fromVC = fromVC.navigationController;
     }
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *translucentView = toVC.translucentView;
@@ -30,7 +37,7 @@
     toView.frame = containerView.bounds;
     toView.hh_y = toView.hh_height;
     translucentView.alpha = 0;
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+    [UIView hh_animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         toView.hh_y = 0;
         translucentView.alpha = 1;
         fromView.layer.cornerRadius = 20;
@@ -40,7 +47,7 @@
         }else{
             fromView.transform = CGAffineTransformMakeScale(0.94, 0.94);
         }
-    } completion:^(BOOL finished) {
+    } completion:^(UIViewAnimatingPosition finalPosition) {
         toView.hh_y = 0;
         fromView.layer.cornerRadius = 20;
         fromView.layer.masksToBounds = true;
@@ -61,19 +68,21 @@
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     if (![toVC isKindOfClass:UITabBarController.class] && toVC.tabBarController) {
         toVC = toVC.tabBarController;
+    } else if (![toVC isKindOfClass:UINavigationController.class] && toVC.navigationController) {
+        toVC = toVC.navigationController;
     }
     UIView *toView = toVC.view;
         
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
+    [UIView hh_animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         fromView.hh_y = fromView.hh_height;
         toView.alpha = 1;
-        toView.layer.cornerRadius = 20;
+        toView.layer.cornerRadius = 0;
         toView.layer.masksToBounds = true;
         toView.transform = CGAffineTransformIdentity;
         translucentView.alpha = 0;
-    } completion:^(BOOL finished) {
+    } completion:^(UIViewAnimatingPosition finalPosition) {
         toView.alpha = 1;
-        toView.layer.cornerRadius = 20;
+        toView.layer.cornerRadius = 0;
         toView.layer.masksToBounds = true;
         toView.transform = CGAffineTransformIdentity;
         [translucentView removeFromSuperview];

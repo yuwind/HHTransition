@@ -16,6 +16,7 @@
 #import "HHPresentSystemTransition.h"
 #import "HHPresentTopBackTransition.h"
 #import "HHPresentMotionTransition.h"
+#import "HHPresentAlertZoomTransition.h"
 
 @implementation HHTransitioningDelegate
 
@@ -45,6 +46,8 @@
             return [HHPresentTopBackTransition transitionWithIsBegining:YES];
         case HHPresentStyleMotion:
             return [HHPresentMotionTransition transitionWithIsBegining:YES];
+        case HHPresentStyleAlertZoom:
+            return [HHPresentAlertZoomTransition transitionWithIsBegining:YES];
         default:
             return nil;
     }
@@ -76,6 +79,8 @@
             return [HHPresentTopBackTransition transitionWithIsBegining:NO];
         case HHPresentStyleMotion:
             return [HHPresentMotionTransition transitionWithIsBegining:NO];
+        case HHPresentStyleAlertZoom:
+            return [HHPresentAlertZoomTransition transitionWithIsBegining:NO];
         default:
             return nil;
     }

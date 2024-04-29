@@ -34,6 +34,7 @@ typedef NS_ENUM(NSUInteger, HHPresentStyle) {
     HHPresentStylePageCurl,
     HHPresentStyleTopBack,
     HHPresentStyleMotion,//viewController must conforms HHInteractionMotionProtocol
+    HHPresentStyleAlertZoom,
 };
 
 typedef NS_ENUM(NSUInteger, HHPushStyle) {
