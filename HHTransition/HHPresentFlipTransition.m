@@ -8,7 +8,6 @@
 
 #import "HHPresentFlipTransition.h"
 #import "UIViewController+HHTransitionProperty.h"
-#import "UIView+HHAnimator.h"
 
 @interface HHPresentFlipTransition ()
 
@@ -17,10 +16,6 @@
 @end
 
 @implementation HHPresentFlipTransition
-
-- (NSTimeInterval)transitionDuration:(nullable id<UIViewControllerContextTransitioning>)transitionContext {
-    return 0.6;
-}
 
 + (instancetype)flipTransitionWithStyle:(HHPresentStyle)style isBegining:(BOOL)isBegining {
     
@@ -45,23 +40,17 @@
     [self setupBeginInfoWithToView:toView];
     translucentView.alpha = 0;
     CGFloat duration = [self transitionDuration:transitionContext];
-    [UIView hh_animateWithDuration:duration animations:^{
+    
+    CGFloat damping = 1;
+    if (self.style == HHPresentStyleSlipFromTop) {
+        damping = 0.65;
+    }
+    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:damping initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         translucentView.alpha = 1;
         [self setupSuspendInfoWithToView:toView];
-    } completion:^(UIViewAnimatingPosition finalPosition) {
+    } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];
     }];
-    
-//    CGFloat damping = 1;
-//    if (self.style == HHPresentStyleSlipFromTop) {
-//        damping = 0.65;
-//    }
-//    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:damping initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//        translucentView.alpha = 1;
-//        [self setupSuspendInfoWithToView:toView];
-//    } completion:^(BOOL finished) {
-//        [transitionContext completeTransition:YES];
-//    }];
 }
 
 - (void)endTransitionWithTransitionContext:(id<UIViewControllerContextTransitioning>)transitionContext {
@@ -70,26 +59,18 @@
     
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     CGFloat duration = [self transitionDuration:transitionContext];
-    
-    [UIView hh_animateWithDuration:duration animations:^{
+
+    CGFloat damping = 1;
+    if (self.style == HHPresentStyleSlipFromTop) {
+        damping = 0.65;
+    }
+    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:damping initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         translucentView.alpha = 0;
         [self setupEndInfoWithFromView:fromView];
-    } completion:^(UIViewAnimatingPosition finalPosition) {
+    } completion:^(BOOL finished) {
         [transitionContext completeTransition:YES];
         [translucentView removeFromSuperview];
     }];
-    
-//    CGFloat damping = 1;
-//    if (self.style == HHPresentStyleSlipFromTop) {
-//        damping = 0.65;
-//    }
-//    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:damping initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//        translucentView.alpha = 0;
-//        [self setupEndInfoWithFromView:fromView];
-//    } completion:^(BOOL finished) {
-//        [transitionContext completeTransition:YES];
-//        [translucentView removeFromSuperview];
-//    }];
 }
 
 - (void)setupBeginInfoWithToView:(UIView *)toView {

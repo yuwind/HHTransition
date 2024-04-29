@@ -25,12 +25,18 @@
     } else if (![fromVC isKindOfClass:UINavigationController.class] && fromVC.navigationController) {
         fromVC = fromVC.navigationController;
     }
+    UIView *fromView = fromVC.view;
+    UIView *snapshotView = [fromView snapshotViewAfterScreenUpdates:false];
+    snapshotView.frame = containerView.bounds;
+    snapshotView.tag = 1030201;
+    [containerView addSubview:snapshotView];
+    fromView.hidden = true;
+    
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *translucentView = toVC.translucentView;
     translucentView.frame = containerView.bounds;
     [containerView addSubview:translucentView];
     
-    UIView *fromView = fromVC.view;
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     [containerView addSubview:toView];
     
@@ -40,27 +46,30 @@
     [UIView hh_animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         toView.hh_y = 0;
         translucentView.alpha = 1;
-        fromView.layer.cornerRadius = 20;
-        fromView.layer.masksToBounds = true;
+        snapshotView.layer.cornerRadius = 20;
+        snapshotView.layer.masksToBounds = true;
         if (mISiPhoneX) {
-            fromView.transform = CGAffineTransformMakeScale(0.94, 0.9);
-        }else{
-            fromView.transform = CGAffineTransformMakeScale(0.94, 0.94);
+            snapshotView.transform = CGAffineTransformMakeScale(0.94, 0.9);
+        } else {
+            snapshotView.transform = CGAffineTransformMakeScale(0.94, 0.94);
         }
     } completion:^(UIViewAnimatingPosition finalPosition) {
         toView.hh_y = 0;
-        fromView.layer.cornerRadius = 20;
-        fromView.layer.masksToBounds = true;
+        snapshotView.layer.cornerRadius = 20;
+        snapshotView.layer.masksToBounds = true;
         if (mISiPhoneX) {
-            fromView.transform = CGAffineTransformMakeScale(0.94, 0.9);
-        }else{
-            fromView.transform = CGAffineTransformMakeScale(0.94, 0.94);
+            snapshotView.transform = CGAffineTransformMakeScale(0.94, 0.9);
+        } else {
+            snapshotView.transform = CGAffineTransformMakeScale(0.94, 0.94);
         }
         [transitionContext completeTransition:YES];
     }];
 }
 
 - (void)endTransitionWithTransitionContext:(id<UIViewControllerContextTransitioning>)transitionContext {
+    UIView *containerView = transitionContext.containerView;
+    UIView *snapshotView = [containerView viewWithTag:1030201];
+    
     UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIView *translucentView = fromVC.translucentView;
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
@@ -75,17 +84,19 @@
         
     [UIView hh_animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         fromView.hh_y = fromView.hh_height;
-        toView.alpha = 1;
-        toView.layer.cornerRadius = 0;
-        toView.layer.masksToBounds = true;
-        toView.transform = CGAffineTransformIdentity;
+        snapshotView.alpha = 1;
+        snapshotView.layer.cornerRadius = 0;
+        snapshotView.layer.masksToBounds = true;
+        snapshotView.transform = CGAffineTransformIdentity;
         translucentView.alpha = 0;
     } completion:^(UIViewAnimatingPosition finalPosition) {
-        toView.alpha = 1;
-        toView.layer.cornerRadius = 0;
-        toView.layer.masksToBounds = true;
-        toView.transform = CGAffineTransformIdentity;
+        snapshotView.alpha = 1;
+        snapshotView.layer.cornerRadius = 0;
+        snapshotView.layer.masksToBounds = true;
+        snapshotView.transform = CGAffineTransformIdentity;
+        [snapshotView removeFromSuperview];
         [translucentView removeFromSuperview];
+        toView.hidden = false;
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
 }
