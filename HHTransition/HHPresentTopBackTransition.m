@@ -30,7 +30,7 @@
     snapshotView.frame = containerView.bounds;
     snapshotView.tag = 1030201;
     [containerView addSubview:snapshotView];
-    fromView.hidden = true;
+    containerView.backgroundColor = [UIColor blackColor];
     
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *translucentView = toVC.translucentView;
@@ -96,7 +96,7 @@
         snapshotView.transform = CGAffineTransformIdentity;
         [snapshotView removeFromSuperview];
         [translucentView removeFromSuperview];
-        toView.hidden = false;
+        containerView.backgroundColor = [UIColor clearColor];
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
 }
